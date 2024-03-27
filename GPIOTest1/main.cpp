@@ -3,9 +3,9 @@
 #include "DCMotor.h" //GPIO/MotorControl Class - SemesterProjekt
 
 //Aliases for the raspberry pi pinout (Change accordingly)
-#define DIR_0_PIN 23
-#define DIR_1_PIN 24
-#define ENA_PIN 25
+#define DIR_0_PIN 24
+#define DIR_1_PIN 25
+#define ENA_PIN 23
 
 #define HOME_SW_PIN 17
 #define LIMIT_SW_PIN 27
@@ -16,6 +16,13 @@ int main(int argc, char *argv[])
     //MOTOR SETUP
     DCMotor motor(DIR_0_PIN, DIR_1_PIN, ENA_PIN);
 
+    motor.run();
+    usleep(5000000);    // Wait for 5s
+    motor.changeDir();
+    usleep(5000000);    // Wait for 5s
+    motor.stop();
+
+    /*
     // -----------------  Motor control without switches ----------------
 
     // RUNNING MOTOR
@@ -42,7 +49,7 @@ int main(int argc, char *argv[])
 
 
     // -----------------  Motor control with micro switches ----------------
-    //*** Still normal motor control, but switches will stop the motor automatically ***
+    // -Still normal motor control, but switches will stop the motor automatically-
 
     //SETUP
     motor.setupHomeSwitch(HOME_SW_PIN);
@@ -58,6 +65,7 @@ int main(int argc, char *argv[])
     //MOTOR RUN RIGHT AFTER SWITCH PRESS;
     motor.run(); //Motor direction will automatically change before running
 
+    */
 
     return 0;
 }

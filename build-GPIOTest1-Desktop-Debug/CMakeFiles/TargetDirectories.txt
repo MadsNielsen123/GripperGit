@@ -1,0 +1,4 @@
+/home/g4/semesterProjekt/GripperGit/build-GPIOTest1-Desktop-Debug/CMakeFiles/GPIOTest1.dir
+/home/g4/semesterProjekt/GripperGit/build-GPIOTest1-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/g4/semesterProjekt/GripperGit/build-GPIOTest1-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/g4/semesterProjekt/GripperGit/build-GPIOTest1-Desktop-Debug/CMakeFiles/GPIOTest1_autogen.dir

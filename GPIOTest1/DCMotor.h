@@ -2,6 +2,7 @@
 #define DCMOTOR_H
 #include <pigpio.h>
 #include <unistd.h> // For sleep functions usleep and nanosleep)
+#include <iostream>
 
 #define MRIGHT 0
 #define MLEFT 1
@@ -13,7 +14,8 @@ public:
     DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gpioPinEna);
     ~DCMotor()
     {
-        stopMotor();
+        stop();
+        std::cout << "Done" << std::endl;
         gpioWrite(mGpioPinDir0, 0);
         gpioWrite(mGpioPinDir1, 0);
         usleep(100000);    // Wait for 100 milliseconds for gpioTerminate to be ready
@@ -34,6 +36,9 @@ private:
     bool mDir = 0; //Default direction
     unsigned int mGpioPinDir0, mGpioPinDir1 , mGpioPinEna;
     bool mHomeSWHit, mLimitSWHit, mMotorRunning = false;
+
+    void limitSwitchHit();
+    void homeSwitchHit();
 };
 
 #endif // DCMOTOR_H
