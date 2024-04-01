@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "URTCP_Test1",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "URTCP_Test1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-URTCP_Test1-Debug-f5d058112201cde647c4.json",
+					"name" : "URTCP_Test1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "URTCP_Test1_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-URTCP_Test1_autogen-Debug-f1096615ff4066c1f9e6.json",
+					"name" : "URTCP_Test1_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug",
+		"source" : "/home/mads/SemesterProjekt/GripperGit/URTCP_Test1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
