@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h> // read(), write(), close()
+#include <iostream>
 
 #define MAX 80
 #define PORT 2024
@@ -61,7 +62,6 @@ int main(int argc, char *argv[])
         printf("server accept the client...\n");
 
     char buff[MAX];
-    int n;
 
     // infinite loop for chat
     while(true) {
@@ -70,23 +70,18 @@ int main(int argc, char *argv[])
         // read the message from client and copy it in buffer
         read(connfd, buff, sizeof(buff));
 
-        // print buffer which contains the client contents
-        printf("From client: %s\t To client : ", buff);
+        std::string str(buff);
+        std::cout << str << std::endl;
 
-        //bzero(buff, MAX); //Clear buffer
-        //n = 0;
-
-        // copy server message in the buffer
-        //while ((buff[n++] = getchar()) != '\n');
-
+        bzero(buff, MAX); //Clear buffer
         // and send that buffer to client
-        //write(connfd, buff, sizeof(buff));
+        buff[0] = 'u';
+        buff[1] = 'p';
+        buff[2] = '\n';
 
-        // if msg contains "Exit" then server exit and chat ended.
-        if (strncmp("exit", buff, 4) == 0) {
-            printf("Server Exit...\n");
-            break;
-        }
+        write(connfd, buff, sizeof(buff));
+        close(connfd);
+        break;
     }
 
     // After chatting close the socket
