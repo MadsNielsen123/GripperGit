@@ -1,0 +1,27 @@
+Databasens navn: SemesterProjekt
+
+Steps for at komme på git-
+
+
+-Step 1: cd GripperGit
+	- Går ind i repository
+
+-Step 2: git status
+	- Tjek hvilken branch man arbejder på
+
+-Step 3: git checkout branchname
+	- Gå ind på den branch man vil arbejde på
+
+-Step 4: git status
+	- Tjek hvilken branch man arbejder på
+
+-Step 5: git add <file>
+	- Tilføjer det man har ændret i koden eller andre dokumenter
+
+-Step 6: git commit -m "message"
+	- Committer til branch, husk at gøre når man er færdig for idag
+
+-Step 7: git log
+	-tjek om alt er okay
+	
+-Step 8: luk lortet og hold fri :)
