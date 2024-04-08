@@ -1,0 +1,8 @@
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/InterruptTest.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/install.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/install/local.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/install/strip.dir
+/home/mads/semesterProjekt/GripperGit/build-InterruptTest-Desktop-Debug/CMakeFiles/InterruptTest_autogen.dir

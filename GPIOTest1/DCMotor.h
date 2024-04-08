@@ -1,8 +1,7 @@
 #ifndef DCMOTOR_H
 #define DCMOTOR_H
 #include <pigpio.h>
-#include <unistd.h> // For sleep functions usleep and nanosleep)
-#include <iostream>
+#include <chrono>
 
 #define MRIGHT 0
 #define MLEFT 1
@@ -12,18 +11,12 @@ class DCMotor
 public:
 
     DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gpioPinEna);
-    ~DCMotor()
-    {
-        stop();
-        std::cout << "Done" << std::endl;
-        gpioWrite(mGpioPinDir0, 0);
-        gpioWrite(mGpioPinDir1, 0);
-        usleep(100000);    // Wait for 100 milliseconds for gpioTerminate to be ready
-        gpioTerminate(); //Reset gpio, ram ect. after program done
-    }
+    ~DCMotor();
 
     void setupHomeSwitch(unsigned int gpioPinHomeSW); //Switch to stop motor
     void setupLimitSwitch(unsigned int gpioPinLimitSW); //Switch to stop motor
+    void homeSwitchStateChange(int gpio, int level, uint32_t tick);
+    void limitSwitchStateChange(int gpio, int level, uint32_t tick);
     void stop();
     void run(unsigned int speed = 100); //Default Full Speed
     void setDir(bool dir);
@@ -35,7 +28,8 @@ public:
 private:
     bool mDir = 0; //Default direction
     unsigned int mGpioPinDir0, mGpioPinDir1 , mGpioPinEna;
-    bool mHomeSWHit, mLimitSWHit, mMotorRunning = false;
+    bool mHomeSWHit = false, mLimitSWHit = false, mMotorRunning = false;
+    std::chrono::steady_clock::time_point mLast_isr_time_homesw, mLast_isr_time_limitsw;
 
     void limitSwitchHit();
     void homeSwitchHit();

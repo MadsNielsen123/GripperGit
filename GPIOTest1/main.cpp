@@ -16,17 +16,10 @@ int main(int argc, char *argv[])
     //MOTOR SETUP
     DCMotor motor(DIR_0_PIN, DIR_1_PIN, ENA_PIN);
 
-    motor.run();
-    usleep(5000000);    // Wait for 5s
-    motor.changeDir();
-    usleep(5000000);    // Wait for 5s
-    motor.stop();
-
-    /*
     // -----------------  Motor control without switches ----------------
 
     // RUNNING MOTOR
-    motor.run();
+    motor.run();´
     usleep(500000);    // Wait for 0,5s
     motor.stop();
 
@@ -47,25 +40,21 @@ int main(int argc, char *argv[])
     usleep(500000);    // Wait for 0,5s
     motor.stop();
 
-
-    // -----------------  Motor control with micro switches ----------------
-    // -Still normal motor control, but switches will stop the motor automatically-
-
+    // -----------------  Motor control without switches ----------------
     //SETUP
     motor.setupHomeSwitch(HOME_SW_PIN);
     motor.setupLimitSwitch(LIMIT_SW_PIN);
 
-    //WAIT FOR SWITCH PRESSED (MOTOR STOPS AUTOMATICALLY)
     motor.run();
     while(!motor.homeSWPressed() || !motor.limitSWPressed())
     {
-        //Wait til home switch or limit switch is pressed.
+        //Runs until homeSW or limitSW has been pressed;
     }
+    motor.stop();
 
-    //MOTOR RUN RIGHT AFTER SWITCH PRESS;
-    motor.run(); //Motor direction will automatically change before running
+    //Running motor while switch is pressed, will automatically change direction first.
+    motor.run();
 
-    */
 
     return 0;
 }

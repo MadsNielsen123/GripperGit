@@ -1,4 +1,7 @@
 #include "DCMotor.h"
+#include <unistd.h> // For sleep functions usleep and nanosleep)
+#include <iostream>
+
 
 DCMotor::DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gpioPinEna)
 {
@@ -17,26 +20,86 @@ DCMotor::DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gp
     mMotorRunning = false;
 }
 
+DCMotor::~DCMotor()
+{
+    stop();
+    std::cout << "Done" << std::endl;
+    gpioWrite(mGpioPinDir0, 0);
+    gpioWrite(mGpioPinDir1, 0);
+    usleep(100000);    // Wait for 100 milliseconds for gpioTerminate to be ready
+    gpioTerminate(); //Reset gpio, ram ect. after program done
+}
+
+void DCMotor::homeSwitchStateChange(int gpio, int level, uint32_t tick) {
+    // Get the current time
+    auto current_time = std::chrono::steady_clock::now();
+
+    // Calculate the time elapsed since the last ISR trigger
+    auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - mLast_isr_time_homesw).count();
+
+    // Ignore the ISR trigger if less than 50ms has elapsed since the last trigger
+    if (elapsed_time < 50) {
+        return;
+    }
+
+    // Update the last ISR trigger time
+    mLast_isr_time_homesw = current_time;
+
+    // Process the ISR trigger
+    mHomeSWHit = true;
+}
+
+void DCMotor::limitSwitchStateChange(int gpio, int level, uint32_t tick) {
+    // Get the current time
+    auto current_time = std::chrono::steady_clock::now();
+
+    // Calculate the time elapsed since the last ISR trigger
+    auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - mLast_isr_time_limitsw).count();
+
+    // Ignore the ISR trigger if less than 50ms has elapsed since the last trigger
+    if (elapsed_time < 50) {
+        return;
+    }
+
+    // Update the last ISR trigger time
+    mLast_isr_time_limitsw = current_time;
+
+    // Process the ISR trigger
+    mLimitSWHit = true;
+}
+
 void DCMotor::setupHomeSwitch(unsigned int gpioPinHomeSW)
 {
-    gpioSetISRFunc(gpioPinHomeSW, RISING_EDGE,-1, homeSwitchHit);
+    // Set GPIO pin mode
+    if (gpioSetMode(gpioPinHomeSW, PI_INPUT) != 0) {
+        std::cerr << "Unable to set GPIO homeSW to input" << std::endl;
+        gpioTerminate();
+        return 1;
+    }
+
+    // Set alert function for falling edge
+    if (gpioSetAlertFunc(gpioPinHomeSW, homeSwitchStateChange) != 0) {
+        std::cerr << "Failed to set homeswitch alert" << std::endl;
+        gpioTerminate();
+        return 1;
+    }
 }
 
 void DCMotor::setupLimitSwitch(unsigned int gpioPinLimitSW)
 {
-    gpioSetISRFunc(gpioPinLimitSW, RISING_EDGE,-1, limitSwitchHit);
-}
+    // Set GPIO pin mode
+    if (gpioSetMode(gpioPinLimitSW, PI_INPUT) != 0) {
+        std::cerr << "Unable to set GPIO limitSW to input" << std::endl;
+        gpioTerminate();
+        return 1;
+    }
 
-void DCMotor::limitSwitchHit()
-{
-    mHomeSWHit = true;
-    stop();
-}
-
-void DCMotor::homeSwitchHit()
-{
-    mLimitSWHit = true;
-    stop();
+    // Set alert function for falling edge
+    if (gpioSetAlertFunc(gpioPinLimitSW, limitSwitchStateChange) != 0) {
+        std::cerr << "Failed to set limitswitch alert" << std::endl;
+        gpioTerminate();
+        return 1;
+    }
 }
 
 void DCMotor::stop()
@@ -53,10 +116,6 @@ void DCMotor::run(unsigned int speed)
         changeDir(); //Change direction
     }
 
-
-    //Not hitting any switches
-    mHomeSWHit = false;
-    mLimitSWHit = false;
     mMotorRunning = true;
 
     if(speed > 100)

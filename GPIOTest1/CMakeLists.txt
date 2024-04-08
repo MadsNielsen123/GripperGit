@@ -21,6 +21,7 @@ add_executable(GPIOTest1
   DCMotor.h
   DCMotor.cpp
 )
+
 target_link_libraries(GPIOTest1 Qt${QT_VERSION_MAJOR}::Core)
 
 # Link pigpio library
@@ -28,3 +29,6 @@ target_link_libraries(GPIOTest1
     Qt${QT_VERSION_MAJOR}::Core
     ${PIGPIO_LIBRARY}
 )
+
+
+target_include_directories(GPIOTest1 PRIVATE ${PIGPIO_INCLUDE_DIRS})
