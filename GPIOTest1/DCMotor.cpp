@@ -19,12 +19,12 @@ DCMotor::DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gp
 
 void DCMotor::setupHomeSwitch(unsigned int gpioPinHomeSW)
 {
-    //gpioSetISRFunc(gpioPinHomeSW, RISING_EDGE,-1, homeSwitchHit());
+    gpioSetISRFunc(gpioPinHomeSW, RISING_EDGE,-1, homeSwitchHit);
 }
 
 void DCMotor::setupLimitSwitch(unsigned int gpioPinLimitSW)
 {
-    //gpioSetISRFunc(gpioPinLimitSW, RISING_EDGE,-1, limitSwitchHit());
+    gpioSetISRFunc(gpioPinLimitSW, RISING_EDGE,-1, limitSwitchHit);
 }
 
 void DCMotor::limitSwitchHit()
