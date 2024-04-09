@@ -18,7 +18,8 @@ find_package(Qt5Sql REQUIRED)
 
 add_executable(SP_DATABASE
   main.cpp
-
+  db.h
+  db.cpp
 
 )
 target_link_libraries(SP_DATABASE Qt${QT_VERSION_MAJOR}::Core)
