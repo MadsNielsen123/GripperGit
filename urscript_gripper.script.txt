@@ -1,0 +1,68 @@
+#connect to socket
+def initGripper():
+	isOpen = socket_open("192.168.1.69",2024)
+	textmsg("sending message")
+	socket_send_line("test")
+end
+
+#wait till continue message has been received
+def gripperWait():
+	while(socket_read_line != "continue")
+		
+	end
+end
+
+#generic receive message from raspberry pi
+def msgRecv():
+	receive = socket_read_line()
+	textmsg(receive)
+
+#generic send message to raspberry pi
+def msgSend(message):
+	socket_send_line(message)
+	textmsg(message)
+end
+
+
+#send signal to raspberry pi to shut down the tcp server 
+def exit():
+	socket_send_line("exit")
+end
+
+
+#set gripper to precise state clamped between 100 and 0
+def gripperSet(amount):
+	if amount > 100:
+		amount = 100
+	else if amount < 0:
+		amount = 0
+	end
+	socket_send_line(amount)
+	textmsg(amount)
+	gripperWait()
+end
+
+
+#set gripper to fully open
+def gripperOpen():
+	socket_send_line("100")
+	textmsg(100)
+	gripperWait()
+end
+
+
+#Grip gripper till resistance
+def gripperGrip():
+	socket_send_line("grip")
+	gripperWait()
+end
+
+#set gripper to fully closed
+def gripperClose():
+	socket_send_line("0")
+	textmsg(0)
+	gripperWait()
+end
+
+#functions we call immediately
+initGripper()
