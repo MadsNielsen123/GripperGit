@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mads/SemesterProjekt/GripperGit/URTCP_Test1
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug
+CMAKE_BINARY_DIR = "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/URTCP_Test1.dir/depend.make
@@ -72,45 +72,61 @@ include CMakeFiles/URTCP_Test1.dir/flags.make
 CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o: CMakeFiles/URTCP_Test1.dir/flags.make
 CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o: URTCP_Test1_autogen/mocs_compilation.cpp
 CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o: CMakeFiles/URTCP_Test1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o -MF CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o -c /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/URTCP_Test1_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o -MF CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o -c "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/URTCP_Test1_autogen/mocs_compilation.cpp"
 
 CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/URTCP_Test1_autogen/mocs_compilation.cpp > CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/URTCP_Test1_autogen/mocs_compilation.cpp" > CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/URTCP_Test1_autogen/mocs_compilation.cpp -o CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/URTCP_Test1_autogen/mocs_compilation.cpp" -o CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/URTCP_Test1.dir/main.cpp.o: CMakeFiles/URTCP_Test1.dir/flags.make
-CMakeFiles/URTCP_Test1.dir/main.cpp.o: /home/mads/SemesterProjekt/GripperGit/URTCP_Test1/main.cpp
+CMakeFiles/URTCP_Test1.dir/main.cpp.o: /mnt/c/Users/Poul/Desktop/SYNC/SDU/2.\ semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/main.cpp
 CMakeFiles/URTCP_Test1.dir/main.cpp.o: CMakeFiles/URTCP_Test1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/URTCP_Test1.dir/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/URTCP_Test1.dir/main.cpp.o -MF CMakeFiles/URTCP_Test1.dir/main.cpp.o.d -o CMakeFiles/URTCP_Test1.dir/main.cpp.o -c /home/mads/SemesterProjekt/GripperGit/URTCP_Test1/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/URTCP_Test1.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/URTCP_Test1.dir/main.cpp.o -MF CMakeFiles/URTCP_Test1.dir/main.cpp.o.d -o CMakeFiles/URTCP_Test1.dir/main.cpp.o -c "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/main.cpp"
 
 CMakeFiles/URTCP_Test1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/URTCP_Test1.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mads/SemesterProjekt/GripperGit/URTCP_Test1/main.cpp > CMakeFiles/URTCP_Test1.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/main.cpp" > CMakeFiles/URTCP_Test1.dir/main.cpp.i
 
 CMakeFiles/URTCP_Test1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/URTCP_Test1.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mads/SemesterProjekt/GripperGit/URTCP_Test1/main.cpp -o CMakeFiles/URTCP_Test1.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/main.cpp" -o CMakeFiles/URTCP_Test1.dir/main.cpp.s
+
+CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o: CMakeFiles/URTCP_Test1.dir/flags.make
+CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o: /mnt/c/Users/Poul/Desktop/SYNC/SDU/2.\ semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/URTCP.cpp
+CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o: CMakeFiles/URTCP_Test1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o -MF CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o.d -o CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o -c "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/URTCP.cpp"
+
+CMakeFiles/URTCP_Test1.dir/URTCP.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/URTCP_Test1.dir/URTCP.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/URTCP.cpp" > CMakeFiles/URTCP_Test1.dir/URTCP.cpp.i
+
+CMakeFiles/URTCP_Test1.dir/URTCP.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/URTCP_Test1.dir/URTCP.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1/URTCP.cpp" -o CMakeFiles/URTCP_Test1.dir/URTCP.cpp.s
 
 # Object files for target URTCP_Test1
 URTCP_Test1_OBJECTS = \
 "CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o" \
-"CMakeFiles/URTCP_Test1.dir/main.cpp.o"
+"CMakeFiles/URTCP_Test1.dir/main.cpp.o" \
+"CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o"
 
 # External object files for target URTCP_Test1
 URTCP_Test1_EXTERNAL_OBJECTS =
 
 URTCP_Test1: CMakeFiles/URTCP_Test1.dir/URTCP_Test1_autogen/mocs_compilation.cpp.o
 URTCP_Test1: CMakeFiles/URTCP_Test1.dir/main.cpp.o
+URTCP_Test1: CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o
 URTCP_Test1: CMakeFiles/URTCP_Test1.dir/build.make
 URTCP_Test1: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3
 URTCP_Test1: CMakeFiles/URTCP_Test1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable URTCP_Test1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable URTCP_Test1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/URTCP_Test1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +138,6 @@ CMakeFiles/URTCP_Test1.dir/clean:
 .PHONY : CMakeFiles/URTCP_Test1.dir/clean
 
 CMakeFiles/URTCP_Test1.dir/depend:
-	cd /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mads/SemesterProjekt/GripperGit/URTCP_Test1 /home/mads/SemesterProjekt/GripperGit/URTCP_Test1 /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/URTCP_Test1.dir/depend
 

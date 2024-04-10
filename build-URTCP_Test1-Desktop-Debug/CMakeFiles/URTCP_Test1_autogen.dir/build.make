@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mads/SemesterProjekt/GripperGit/URTCP_Test1
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug
+CMAKE_BINARY_DIR = "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug"
 
 # Utility rule file for URTCP_Test1_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/URTCP_Test1_autogen.dir/compiler_depend.make
 include CMakeFiles/URTCP_Test1_autogen.dir/progress.make
 
 CMakeFiles/URTCP_Test1_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target URTCP_Test1"
-	/usr/bin/cmake -E cmake_autogen /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target URTCP_Test1"
+	/usr/bin/cmake -E cmake_autogen "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1_autogen.dir/AutogenInfo.json" ""
 
 URTCP_Test1_autogen: CMakeFiles/URTCP_Test1_autogen
 URTCP_Test1_autogen: CMakeFiles/URTCP_Test1_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/URTCP_Test1_autogen.dir/clean:
 .PHONY : CMakeFiles/URTCP_Test1_autogen.dir/clean
 
 CMakeFiles/URTCP_Test1_autogen.dir/depend:
-	cd /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mads/SemesterProjekt/GripperGit/URTCP_Test1 /home/mads/SemesterProjekt/GripperGit/URTCP_Test1 /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1_autogen.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/URTCP_Test1_autogen.dir/depend
 

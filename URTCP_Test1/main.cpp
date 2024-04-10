@@ -13,7 +13,7 @@
 #define PORT 2024
 #define SA struct sockaddr
 
-int main(int argc, char *argv[])
+int main()
 {
     int sockfd, connfd;
     socklen_t len;
@@ -22,11 +22,11 @@ int main(int argc, char *argv[])
     // socket create and verification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1) {
-        printf("socket creation failed...\n");
+        std::cout << "socket creation failed...\n";
         exit(1);
     }
     else
-        printf("Socket successfully created..\n");
+        std::cout << "Socket successfully created..\n";
     bzero(&servaddr, sizeof(servaddr)); //Reset address before assigning
 
     // assign IP, PORT
@@ -36,30 +36,30 @@ int main(int argc, char *argv[])
 
     // Binding newly created socket to given IP and verification
     if ((bind(sockfd, (SA*)&servaddr, sizeof(servaddr))) != 0) {
-        printf("socket bind failed...\n");
+        std::cout << "socket bind failed...\n";
         exit(1);
     }
     else
-        printf("Socket successfully binded..\n");
+        std::cout << "Socket successfully binded..\n";
 
     // Now server is ready to listen and verification
     if ((listen(sockfd, 5)) != 0) {
-        printf("Listen failed...\n");
+        std::cout << "Listen failed...\n";
         exit(1);
     }
     else
-        printf("Server listening..\n");
+        std::cout << "Server listening..\n";
 
     len = sizeof(cli);
 
     // Accept the data packet from client and verification
     connfd = accept(sockfd, (SA*)&cli, &len);
     if (connfd < 0) {
-        printf("server accept failed...\n");
+        std::cout << "server accept failed...\n";
         exit(0);
     }
     else
-        printf("server accept the client...\n");
+        std::cout << "server accept the client...\n";
 
     char buff[MAX];
 

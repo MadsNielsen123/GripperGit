@@ -15,6 +15,6 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
 add_executable(URTCP_Test1
-  main.cpp
+  main.cpp URTCP.cpp URTCP.h
 )
 target_link_libraries(URTCP_Test1 Qt${QT_VERSION_MAJOR}::Core)

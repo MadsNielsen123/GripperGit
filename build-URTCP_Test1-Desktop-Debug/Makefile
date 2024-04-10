@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mads/SemesterProjekt/GripperGit/URTCP_Test1
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/URTCP_Test1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug
+CMAKE_BINARY_DIR = "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Poul/Desktop/SYNC/SDU/2. semester/semesterprojekt/URTCP_devSpace/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -141,6 +141,30 @@ URTCP_Test1_autogen: cmake_check_build_system
 URTCP_Test1_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/URTCP_Test1_autogen.dir/build.make CMakeFiles/URTCP_Test1_autogen.dir/build
 .PHONY : URTCP_Test1_autogen/fast
+
+URTCP.o: URTCP.cpp.o
+.PHONY : URTCP.o
+
+# target to build an object file
+URTCP.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/URTCP_Test1.dir/build.make CMakeFiles/URTCP_Test1.dir/URTCP.cpp.o
+.PHONY : URTCP.cpp.o
+
+URTCP.i: URTCP.cpp.i
+.PHONY : URTCP.i
+
+# target to preprocess a source file
+URTCP.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/URTCP_Test1.dir/build.make CMakeFiles/URTCP_Test1.dir/URTCP.cpp.i
+.PHONY : URTCP.cpp.i
+
+URTCP.s: URTCP.cpp.s
+.PHONY : URTCP.s
+
+# target to generate assembly for a file
+URTCP.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/URTCP_Test1.dir/build.make CMakeFiles/URTCP_Test1.dir/URTCP.cpp.s
+.PHONY : URTCP.cpp.s
 
 URTCP_Test1_autogen/mocs_compilation.o: URTCP_Test1_autogen/mocs_compilation.cpp.o
 .PHONY : URTCP_Test1_autogen/mocs_compilation.o
@@ -200,6 +224,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... URTCP_Test1_autogen"
 	@echo "... URTCP_Test1"
+	@echo "... URTCP.o"
+	@echo "... URTCP.i"
+	@echo "... URTCP.s"
 	@echo "... URTCP_Test1_autogen/mocs_compilation.o"
 	@echo "... URTCP_Test1_autogen/mocs_compilation.i"
 	@echo "... URTCP_Test1_autogen/mocs_compilation.s"
