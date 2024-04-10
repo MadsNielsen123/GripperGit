@@ -23,8 +23,9 @@ class URTCP
         void gripperTerminate();
         std::string gripperRead();
         void gripperContinue();
-    private:
         void gripperWrite(std::string msg);
+    private:
+        //void gripperWrite(std::string msg);
 };
 
 #endif // URTCP_H
