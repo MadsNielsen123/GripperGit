@@ -13,15 +13,20 @@
 int main(int argc, char *argv[])
 {
 
+    /* // ------------------------ EXAMPLE ------------------------------
+
     //MOTOR SETUP
     DCMotor motor(DIR_0_PIN, DIR_1_PIN, ENA_PIN);
 
     // -----------------  Motor control without switches ----------------
+    std::cout << "At 2:" << std::endl;
 
     // RUNNING MOTOR
-    motor.run();´
-    usleep(500000);    // Wait for 0,5s
+    motor.run();
+    usleep(3000000);    // Wait for 3s
     motor.stop();
+
+    std::cout << "At 3:" << std::endl;
 
     // MOTOR DIRECTION
     motor.setDir(1); // Set motor direction [0 / 1] Default:0
@@ -30,14 +35,14 @@ int main(int argc, char *argv[])
 
     // MOTOR CAN CHANGE DIRECTION WHILE RUNNING. IT WILL COME TO FULL STOP SHORTLY AND THEN CONTINUE IN OTHER DIRECTION
     motor.run();
-    usleep(500000);
+    usleep(2000000);
     motor.changeDir();
-    usleep(500000);
+    usleep(2000000);
     motor.stop();
 
     //REDUCED SPEED
     motor.run(60); //Runs motor at ~60% speed (60% duty cycle) -Default:100%
-    usleep(500000);    // Wait for 0,5s
+    usleep(10000000);    // Wait for 10s
     motor.stop();
 
     // -----------------  Motor control without switches ----------------
@@ -46,7 +51,7 @@ int main(int argc, char *argv[])
     motor.setupLimitSwitch(LIMIT_SW_PIN);
 
     motor.run();
-    while(!motor.homeSWPressed() || !motor.limitSWPressed())
+    while(!motor.homeSWPressed() && !motor.limitSWPressed())
     {
         //Runs until homeSW or limitSW has been pressed;
     }
@@ -55,6 +60,7 @@ int main(int argc, char *argv[])
     //Running motor while switch is pressed, will automatically change direction first.
     motor.run();
 
+    */
 
     return 0;
 }

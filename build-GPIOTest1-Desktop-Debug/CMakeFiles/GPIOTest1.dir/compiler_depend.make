@@ -3,7 +3,7 @@
 
 CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.cpp \
   /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.h \
-  /usr/include/pigpio.h \
+  /usr/local/include/pigpio.h \
   /usr/lib/llvm-14/lib/clang/14.0.6/include/stddef.h \
   /usr/lib/llvm-14/lib/clang/14.0.6/include/__stddef_max_align_t.h \
   /usr/lib/llvm-14/lib/clang/14.0.6/include/stdint.h \
@@ -62,10 +62,18 @@ CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIO
   /usr/include/aarch64-linux-gnu/bits/getopt_core.h \
   /usr/include/aarch64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
-  /usr/include/c++/12/iostream \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/type_traits \
   /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
   /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \
   /usr/include/aarch64-linux-gnu/c++/12/bits/cpu_defines.h \
+  /usr/include/c++/12/cstdint \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/ctime \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/iostream \
   /usr/include/c++/12/ostream \
   /usr/include/c++/12/ios \
   /usr/include/c++/12/iosfwd \
@@ -91,10 +99,8 @@ CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIO
   /usr/include/c++/12/bits/hash_bytes.h \
   /usr/include/c++/12/new \
   /usr/include/c++/12/bits/move.h \
-  /usr/include/c++/12/type_traits \
   /usr/include/c++/12/bits/nested_exception.h \
   /usr/include/c++/12/bits/char_traits.h \
-  /usr/include/c++/12/cstdint \
   /usr/include/c++/12/bits/localefwd.h \
   /usr/include/aarch64-linux-gnu/c++/12/bits/c++locale.h \
   /usr/include/c++/12/clocale \
@@ -479,7 +485,7 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
   /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.h \
-  /usr/include/pigpio.h \
+  /usr/local/include/pigpio.h \
   /usr/include/unistd.h \
   /usr/include/aarch64-linux-gnu/bits/posix_opt.h \
   /usr/include/aarch64-linux-gnu/bits/environments.h \
@@ -493,16 +499,6 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 /usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:
 
 /usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreevent.h:
-
-/usr/include/c++/12/bits/parse_numbers.h:
-
-/usr/include/c++/12/ctime:
-
-/usr/include/c++/12/limits:
-
-/usr/include/c++/12/ratio:
-
-/usr/include/c++/12/chrono:
 
 /usr/include/aarch64-linux-gnu/qt5/QtCore/qobject_impl.h:
 
@@ -540,17 +536,21 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/c++/12/list:
 
-/usr/include/c++/12/ext/numeric_traits.h:
+/usr/include/c++/12/bits/stl_uninitialized.h:
 
-/usr/include/c++/12/bits/stl_function.h:
+/usr/include/c++/12/vector:
+
+/usr/include/aarch64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:
+
+/usr/include/aarch64-linux-gnu/qt5/QtCore/qvector.h:
 
 /usr/include/c++/12/bits/std_function.h:
+
+/usr/include/c++/12/bits/uses_allocator.h:
 
 /usr/include/c++/12/bits/stl_iterator.h:
 
 /usr/include/c++/12/bits/concept_check.h:
-
-/usr/include/c++/12/bits/uses_allocator.h:
 
 /usr/include/c++/12/bits/stl_iterator_base_types.h:
 
@@ -576,37 +576,15 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/aarch64-linux-gnu/c++/12/bits/gthr-default.h:
 
-/usr/include/c++/12/bits/stl_algobase.h:
-
 /usr/include/ctype.h:
 
 /usr/include/aarch64-linux-gnu/bits/endianness.h:
-
-/usr/include/c++/12/ext/aligned_buffer.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/c++/12/istream:
-
-/usr/include/c++/12/bits/atomic_base.h:
 
 /usr/include/c++/12/bits/localefwd.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h:
 
-/usr/include/c++/12/bits/move.h:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/c++/12/utility:
-
 /usr/include/aarch64-linux-gnu/qt5/QtCore/qobjectdefs.h:
-
-/usr/include/c++/12/backward/binders.h:
-
-/usr/include/c++/12/bits/chrono.h:
-
-/usr/include/c++/12/clocale:
 
 /usr/include/c++/12/bits/cxxabi_init_exception.h:
 
@@ -660,9 +638,25 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/c++/12/numeric:
 
-/usr/include/c++/12/vector:
-
 /usr/include/c++/12/iostream:
+
+/usr/include/c++/12/bits/parse_numbers.h:
+
+/usr/include/c++/12/bits/streambuf.tcc:
+
+/usr/include/c++/12/bits/move.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/c++/12/utility:
+
+/usr/include/c++/12/limits:
+
+/usr/include/c++/12/chrono:
+
+/home/g4/semesterProjekt/GripperGit/GPIOTest1/main.cpp:
+
+/usr/include/c++/12/ratio:
 
 /usr/include/linux/close_range.h:
 
@@ -684,9 +678,23 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/c++/12/ostream:
 
+/usr/include/c++/12/clocale:
+
+/usr/include/c++/12/bits/chrono.h:
+
+GPIOTest1_autogen/mocs_compilation.cpp:
+
 /usr/include/c++/12/bits/exception_defines.h:
 
 /usr/include/aarch64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/c++/12/ctime:
+
+/usr/include/aarch64-linux-gnu/gnu/stubs.h:
+
+/usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/12/bits/basic_ios.tcc:
 
 /usr/include/aarch64-linux-gnu/bits/types/clock_t.h:
 
@@ -704,21 +712,23 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/c++/12/cwchar:
 
+/usr/include/aarch64-linux-gnu/qt5/QtCore/qarraydata.h:
+
 /usr/include/aarch64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/aarch64-linux-gnu/bits/types.h:
 
 /usr/include/aarch64-linux-gnu/bits/setjmp.h:
 
-/usr/include/aarch64-linux-gnu/qt5/QtCore/qarraydata.h:
+/usr/include/c++/12/ext/aligned_buffer.h:
 
-/usr/include/pigpio.h:
+/usr/include/features-time64.h:
 
-/usr/include/aarch64-linux-gnu/bits/timesize.h:
+/usr/include/c++/12/istream:
 
-/usr/include/c++/12/cctype:
+/usr/include/c++/12/bits/atomic_base.h:
 
-/usr/include/aarch64-linux-gnu/bits/select.h:
+/usr/local/include/pigpio.h:
 
 /usr/lib/llvm-14/lib/clang/14.0.6/include/stddef.h:
 
@@ -766,12 +776,6 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/c++/12/cstddef:
 
-/usr/include/aarch64-linux-gnu/gnu/stubs.h:
-
-/usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/12/bits/basic_ios.tcc:
-
 /usr/include/c++/12/bits/char_traits.h:
 
 /usr/include/aarch64-linux-gnu/c++/12/bits/cpu_defines.h:
@@ -789,6 +793,12 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/c++/12/bits/hash_bytes.h:
+
+/usr/include/aarch64-linux-gnu/bits/timesize.h:
+
+/usr/include/c++/12/cctype:
+
+/usr/include/aarch64-linux-gnu/bits/select.h:
 
 /usr/include/c++/12/bits/allocated_ptr.h:
 
@@ -822,10 +832,6 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/aarch64-linux-gnu/bits/types/struct_timeval.h:
 
-/usr/include/c++/12/bits/uniform_int_dist.h:
-
-/usr/include/c++/12/bits/ptr_traits.h:
-
 /usr/include/aarch64-linux-gnu/bits/types/clockid_t.h:
 
 /usr/include/c++/12/iosfwd:
@@ -843,10 +849,6 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 /usr/include/aarch64-linux-gnu/bits/pthreadtypes.h:
 
 /usr/include/c++/12/bits/stl_construct.h:
-
-/usr/include/c++/12/ext/type_traits.h:
-
-/usr/include/c++/12/bits/basic_string.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/wint_t.h:
 
@@ -887,6 +889,22 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 /usr/include/aarch64-linux-gnu/bits/sched.h:
 
 /usr/include/c++/12/system_error:
+
+/usr/include/c++/12/ext/type_traits.h:
+
+/usr/include/c++/12/bits/basic_string.h:
+
+/usr/include/c++/12/bits/uniform_int_dist.h:
+
+/usr/include/c++/12/bits/ptr_traits.h:
+
+/usr/include/c++/12/bits/stl_function.h:
+
+/usr/include/c++/12/backward/binders.h:
+
+/usr/include/c++/12/ext/numeric_traits.h:
+
+/usr/include/c++/12/bits/stl_algobase.h:
 
 /usr/include/aarch64-linux-gnu/c++/12/bits/error_constants.h:
 
@@ -968,8 +986,6 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 
 /usr/include/aarch64-linux-gnu/qt5/QtCore/qiterator.h:
 
-/usr/include/c++/12/bits/streambuf.tcc:
-
 /usr/include/c++/12/bits/basic_ios.h:
 
 /usr/lib/llvm-14/lib/clang/14.0.6/include/stdarg.h:
@@ -985,10 +1001,6 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: /home/g4/semesterProjekt/GripperGit/GPIOTes
 /usr/include/asm-generic/errno.h:
 
 /usr/include/c++/12/bits/istream.tcc:
-
-GPIOTest1_autogen/mocs_compilation.cpp:
-
-/home/g4/semesterProjekt/GripperGit/GPIOTest1/main.cpp:
 
 /usr/include/assert.h:
 
@@ -1052,8 +1064,6 @@ GPIOTest1_autogen/mocs_compilation.cpp:
 
 /usr/include/string.h:
 
-/usr/include/c++/12/bits/stl_uninitialized.h:
-
 /usr/include/c++/12/iterator:
 
 /usr/include/c++/12/ios:
@@ -1075,7 +1085,3 @@ GPIOTest1_autogen/mocs_compilation.cpp:
 /usr/include/c++/12/bits/stl_numeric.h:
 
 /usr/include/c++/12/functional:
-
-/usr/include/aarch64-linux-gnu/qt5/QtCore/qvector.h:
-
-/usr/include/aarch64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:

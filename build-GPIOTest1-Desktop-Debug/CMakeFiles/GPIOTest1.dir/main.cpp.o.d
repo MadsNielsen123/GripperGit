@@ -271,7 +271,7 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o: \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/istream \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/istream.tcc \
   /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.h \
-  /usr/include/pigpio.h /usr/include/unistd.h \
+  /usr/local/include/pigpio.h /usr/include/unistd.h \
   /usr/include/aarch64-linux-gnu/bits/posix_opt.h \
   /usr/include/aarch64-linux-gnu/bits/environments.h \
   /usr/include/aarch64-linux-gnu/bits/confname.h \

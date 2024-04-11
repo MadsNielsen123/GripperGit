@@ -1,7 +1,7 @@
 CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o: \
   /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.cpp \
   /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.h \
-  /usr/include/pigpio.h \
+  /usr/local/include/pigpio.h \
   /usr/lib/llvm-14/lib/clang/14.0.6/include/stddef.h \
   /usr/lib/llvm-14/lib/clang/14.0.6/include/__stddef_max_align_t.h \
   /usr/lib/llvm-14/lib/clang/14.0.6/include/stdint.h \
@@ -55,10 +55,18 @@ CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o: \
   /usr/include/aarch64-linux-gnu/bits/getopt_core.h \
   /usr/include/aarch64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
-  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/iostream \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/chrono \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/chrono.h \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/ratio \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/type_traits \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/aarch64-linux-gnu/c++/12/bits/c++config.h \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/aarch64-linux-gnu/c++/12/bits/os_defines.h \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/aarch64-linux-gnu/c++/12/bits/cpu_defines.h \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/cstdint \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/limits \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/ctime \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/parse_numbers.h \
+  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/iostream \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/ostream \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/ios \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/iosfwd \
@@ -83,10 +91,8 @@ CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o: \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/hash_bytes.h \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/new \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/move.h \
-  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/type_traits \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/nested_exception.h \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/char_traits.h \
-  /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/cstdint \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/bits/localefwd.h \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/aarch64-linux-gnu/c++/12/bits/c++locale.h \
   /usr/bin/../lib/gcc/aarch64-linux-gnu/12/../../../../include/c++/12/clocale \

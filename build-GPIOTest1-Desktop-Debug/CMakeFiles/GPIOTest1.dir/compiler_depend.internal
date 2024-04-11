@@ -4,7 +4,7 @@
 CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o
  /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.cpp
  /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.h
- /usr/include/pigpio.h
+ /usr/local/include/pigpio.h
  /usr/lib/llvm-14/lib/clang/14.0.6/include/stddef.h
  /usr/lib/llvm-14/lib/clang/14.0.6/include/__stddef_max_align_t.h
  /usr/lib/llvm-14/lib/clang/14.0.6/include/stdint.h
@@ -63,10 +63,18 @@ CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o
  /usr/include/aarch64-linux-gnu/bits/getopt_core.h
  /usr/include/aarch64-linux-gnu/bits/unistd_ext.h
  /usr/include/linux/close_range.h
- /usr/include/c++/12/iostream
+ /usr/include/c++/12/chrono
+ /usr/include/c++/12/bits/chrono.h
+ /usr/include/c++/12/ratio
+ /usr/include/c++/12/type_traits
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h
  /usr/include/aarch64-linux-gnu/c++/12/bits/cpu_defines.h
+ /usr/include/c++/12/cstdint
+ /usr/include/c++/12/limits
+ /usr/include/c++/12/ctime
+ /usr/include/c++/12/bits/parse_numbers.h
+ /usr/include/c++/12/iostream
  /usr/include/c++/12/ostream
  /usr/include/c++/12/ios
  /usr/include/c++/12/iosfwd
@@ -92,10 +100,8 @@ CMakeFiles/GPIOTest1.dir/DCMotor.cpp.o
  /usr/include/c++/12/bits/hash_bytes.h
  /usr/include/c++/12/new
  /usr/include/c++/12/bits/move.h
- /usr/include/c++/12/type_traits
  /usr/include/c++/12/bits/nested_exception.h
  /usr/include/c++/12/bits/char_traits.h
- /usr/include/c++/12/cstdint
  /usr/include/c++/12/bits/localefwd.h
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++locale.h
  /usr/include/c++/12/clocale
@@ -482,7 +488,7 @@ CMakeFiles/GPIOTest1.dir/main.cpp.o
  /usr/include/c++/12/istream
  /usr/include/c++/12/bits/istream.tcc
  /home/g4/semesterProjekt/GripperGit/GPIOTest1/DCMotor.h
- /usr/include/pigpio.h
+ /usr/local/include/pigpio.h
  /usr/include/unistd.h
  /usr/include/aarch64-linux-gnu/bits/posix_opt.h
  /usr/include/aarch64-linux-gnu/bits/environments.h
