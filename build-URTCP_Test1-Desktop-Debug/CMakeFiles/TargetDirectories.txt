@@ -1,4 +1,0 @@
-/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1.dir
-/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/edit_cache.dir
-/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/rebuild_cache.dir
-/home/mads/SemesterProjekt/GripperGit/build-URTCP_Test1-Desktop-Debug/CMakeFiles/URTCP_Test1_autogen.dir
