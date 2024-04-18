@@ -9,17 +9,17 @@
 #include <sys/types.h>
 #include <unistd.h> // read(), write(), close()
 #include <iostream>
+#include "errno.h"
 
 #define MAX 80
 #define PORT 2024
 #define SA struct sockaddr
-char buff[MAX];
-int sockfd, connfd;
-socklen_t len;
-struct sockaddr_in servaddr, cli;
+
+//static int opt = 1;
 
 URTCP::URTCP()
 {
+    std::cout << "debug msg" << std::endl;
     // socket create and verification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1) {
@@ -27,40 +27,58 @@ URTCP::URTCP()
         exit(1);
     }
     else
-        std::cout << "Socket successfully created..\n";
+        std::cout << "Socket successfully created.." << std::endl;
     bzero(&servaddr, sizeof(servaddr)); //Reset address before assigning
 
+    /*// Forcefully attaching socket to the port 2024
+    if (setsockopt(sockfd, SOL_SOCKET,
+                   SO_REUSEADDR | SO_REUSEPORT, &opt,
+                   sizeof(opt))) {
+        perror("setsockopt");
+        exit(EXIT_FAILURE);
+    }*/
     // assign IP, PORT
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servaddr.sin_port = htons(PORT);
 
+    int a = bind(sockfd, (SA*)&servaddr, sizeof(servaddr));
+    if(a<0)
+    {
+        perror("bind");
+        std::cout << "\n\n" << errno << '\n';
+        std::cout << sockfd << '\n';
+        std::cout << servaddr.sin_addr.s_addr << '\n';
+        std::cout << sizeof(servaddr) << "\n\n";
+    }
+
+
     // Binding newly created socket to given IP and verification
-    if ((bind(sockfd, (SA*)&servaddr, sizeof(servaddr))) != 0) {
-        std::cout << "socket bind failed...\n";
+    if (a != 0) {
+        std::cout << "socket bind failed..." << std::endl;
         exit(1);
     }
     else
-        std::cout << "Socket successfully binded..\n";
+        std::cout << "Socket successfully binded.." << std::endl;
 
     // Now server is ready to listen and verification
     if ((listen(sockfd, 5)) != 0) {
-        std::cout << "Listen failed...\n";
+        std::cout << "Listen failed..." << std::endl;
         exit(1);
     }
     else
-        std::cout << "Server listening..\n";
+        std::cout << "Server listening.." << std::endl;
 
     len = sizeof(cli);
 
     // Accept the data packet from client and verification
     connfd = accept(sockfd, (SA*)&cli, &len);
     if (connfd < 0) {
-        std::cout << "server accept failed...\n";
+        std::cout << "server accept failed..." << std::endl;
         exit(0);
     }
     else
-        std::cout << "server accept the client...\n";
+        std::cout << "server accept the client..." << std::endl;
 
 }
 
@@ -77,13 +95,18 @@ std::string URTCP::gripperRead()
 
 void URTCP::gripperWrite(std::string msg)
 {
+    std::cout << msg << std::endl;
     char const* out = msg.c_str();
     write(connfd, out, sizeof(out));
 }
 
 void URTCP::gripperContinue()
 {
-    gripperWrite("continue");
+    //gripperWrite("continue");
+    char out[2];
+    out[0]='a';
+    out[1]='\n';
+    write(connfd, out, 2);
 }
 
 void URTCP::gripperTerminate()

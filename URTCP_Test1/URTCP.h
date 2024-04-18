@@ -10,12 +10,13 @@
 #include <sys/types.h>
 #include <unistd.h> // read(), write(), close()
 #include <iostream>
-
 #define MAX 80
 #define PORT 2024
 #define SA struct sockaddr
-
-
+static char buff[MAX];
+static int sockfd, connfd;
+static socklen_t len;
+static struct sockaddr_in servaddr, cli;
 class URTCP
 {
     public:
