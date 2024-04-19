@@ -1,0 +1,23 @@
+create schema SemesterProjekt3;
+use SemesterProjekt3;
+
+create table objekt (
+objekt_id int Auto_increment Primary key,
+size int
+);
+
+create table dag (
+dag_id int Auto_increment Primary key,
+dato date,
+ugedag char(50),
+tidspunkt TIME
+);
+
+create table robot (
+  robot_id int Auto_increment Primary key,
+  navn char(50),
+  objekt_id int,
+  dag_id int,
+  FOREIGN KEY (objekt_id) REFERENCES objekt(objekt_id),
+  FOREIGN KEY (dag_id) REFERENCES dag(dag_id)
+);

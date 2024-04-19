@@ -6,14 +6,21 @@
 #include <QSqlDatabase>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+
+//tids data ting
+#include <chrono>
+#include <ctime>
 
 
 class DB
+
 {
 public:
     DB();
     ~DB(){ mDb.close(); };
     void printAll();
+    void insertData();
 
 
 private:
@@ -23,3 +30,4 @@ private:
 };
 
 #endif // DB_H
+

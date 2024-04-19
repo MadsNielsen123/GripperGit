@@ -11,13 +11,9 @@ int main(int argc, char *argv[])
 {
 DB DB;
 
+
+DB.insertData();
 DB.printAll();
-
-
-
-
-
-
 
     //    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
 //    db.setHostName("localhost");
