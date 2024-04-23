@@ -1,0 +1,34 @@
+connection is opened on constructor call //subject to change, could make it a separate connection method
+
+class name is URTCP
+
+gripperRead() immediately returns a string corresponding to the contents of the TCP buffer
+
+gripperWrite(string) immediately writes to the URscript when its awaiting input. this method is not meant to be called directly.
+
+gripperContinue() signals to the URrobot that it may continue, to be used for example when the robot wishes to grip an object, this should then be called once the grip is complete as measured by the raspberry pi
+
+gripperTerminate() terminates the connection
+
+
+
+on the urscript side we have
+
+initGripper() which is ran on robot boot and connects to the TCP server on the raspberry pi
+
+gripperWait() is a function only to be used within other functions. it waits for a gripperContinue() signal to know its task has been completed
+
+msgRecv() is a function to receive a message, only used in gripperWait as of current
+
+msgSend(message) is a function to send any message to the tcp server raspberry pi. should not be used, instead socket sends have been implemented directly in sending functions
+
+exit() sends a signal to shut down the tcp server socket // not currently implemented on the server raspberry pi
+
+gripperSet(amount) signals to the server to position the gripper at a certain percentage (input 0-100 measured in %)
+
+gripperOpen() signals to the server to position the gripper at 100, that is, completely open
+
+gripperGrip() signals to the server to position the gripper at a gripped position
+
+gripperClose() signals to the server to position the gripper at 0, that is, completely closed
+
