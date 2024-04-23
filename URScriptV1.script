@@ -1,21 +1,18 @@
 #connect to socket
 def initGripper():
-	isOpen = socket_open("192.168.1.69",2024)
-	textmsg("sending message")
-	socket_send_line("test")
+ isOpen = socket_open("192.168.1.69",2024, "rasp")
 end
 
 #wait till continue message has been received
 def gripperWait():
-	while(socket_read_line != "continue")
-		
-	end
+ textmsg(socket_read_line("rasp", timeout = 20))
 end
 
 #generic receive message from raspberry pi
 def msgRecv():
-	receive = socket_read_line()
-	textmsg(receive)
+ receive = socket_read_line()
+ textmsg(receive)
+end
 
 #generic send message to raspberry pi
 def msgSend(message):
@@ -34,7 +31,7 @@ end
 def gripperSet(amount):
 	if amount > 100:
 		amount = 100
-	else if amount < 0:
+	else:
 		amount = 0
 	end
 	socket_send_line(amount)
@@ -45,7 +42,7 @@ end
 
 #set gripper to fully open
 def gripperOpen():
-	socket_send_line("100")
+	socket_send_string("100", "rasp")
 	textmsg(100)
 	gripperWait()
 end
