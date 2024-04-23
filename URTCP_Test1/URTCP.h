@@ -10,23 +10,43 @@
 #include <sys/types.h>
 #include <unistd.h> // read(), write(), close()
 #include <iostream>
+
 #define MAX 80
 #define PORT 2024
 #define SA struct sockaddr
-static char buff[MAX];
-static int sockfd, connfd;
-static socklen_t len;
-static struct sockaddr_in servaddr, cli;
+
+enum Command
+{
+    GRIPPER_CLOSE,
+    GRIPPER_OPEN,
+    GRIPPER_SET,
+    GRIPPER_EXIT,
+    GRIPPER_GRIP
+};
+
 class URTCP
 {
-    public:
-        URTCP();
-        void gripperTerminate();
-        std::string gripperRead();
-        void gripperContinue();
-        void gripperWrite(std::string msg);
-    private:
-        //void gripperWrite(std::string msg);
+public:
+    URTCP();
+    void URTerminate();
+    void URContinue();
+
+    void waitCommand();
+    unsigned int getOpenAmount() const;
+    bool isConnected() const;
+    Command getCommand() const;
+
+private:
+    std::string URRead();
+    void URWrite(std::string msg);
+    char buff[MAX];
+    int sockfd, connfd;
+    socklen_t len;
+    struct sockaddr_in servaddr, cli;
+
+    unsigned int mOpenAmount;
+    bool mIsConnected;
+    Command mCommand;
 };
 
 #endif // URTCP_H

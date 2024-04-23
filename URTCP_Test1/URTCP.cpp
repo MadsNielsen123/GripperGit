@@ -15,8 +15,6 @@
 #define PORT 2024
 #define SA struct sockaddr
 
-//static int opt = 1;
-
 URTCP::URTCP()
 {
     std::cout << "debug msg" << std::endl;
@@ -30,13 +28,6 @@ URTCP::URTCP()
         std::cout << "Socket successfully created.." << std::endl;
     bzero(&servaddr, sizeof(servaddr)); //Reset address before assigning
 
-    /*// Forcefully attaching socket to the port 2024
-    if (setsockopt(sockfd, SOL_SOCKET,
-                   SO_REUSEADDR | SO_REUSEPORT, &opt,
-                   sizeof(opt))) {
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
-    }*/
     // assign IP, PORT
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -82,7 +73,7 @@ URTCP::URTCP()
 
 }
 
-std::string URTCP::gripperRead()
+std::string URTCP::URRead()
 {
     bzero(buff, MAX); //Clear buffer
 
@@ -93,24 +84,67 @@ std::string URTCP::gripperRead()
     return msg;
 }
 
-void URTCP::gripperWrite(std::string msg)
+unsigned int URTCP::getOpenAmount() const {return mOpenAmount;}
+
+void URTCP::URWrite(std::string msg)
 {
+    msg += "\n";
     std::cout << msg << std::endl;
     char const* out = msg.c_str();
     write(connfd, out, sizeof(out));
 }
 
-void URTCP::gripperContinue()
+void URTCP::URContinue()
 {
-    //gripperWrite("continue");
     char out[2];
-    out[0]='a';
+    out[0]='h';
     out[1]='\n';
-    write(connfd, out, 2);
+    write(connfd, out, sizeof(out));
+    //URWrite("continue");
 }
 
-void URTCP::gripperTerminate()
+void URTCP::URTerminate()
 {
     close(connfd);
     close(sockfd);
+}
+
+bool URTCP::isConnected() const
+{
+    return mIsConnected;
+}
+
+Command URTCP::getCommand() const
+{
+    return mCommand;
+}
+
+void URTCP::waitCommand()
+{
+    std::string command = URRead();
+    std::cout << command << std::endl;
+
+    if(command == "exit")
+    {
+        mIsConnected = false;
+        URTerminate();
+        mCommand = GRIPPER_EXIT;
+        return;
+    }
+
+    if(command == "grip")
+    {
+        mCommand = GRIPPER_GRIP;
+        return;
+    }
+
+
+    //Else Command must be a set-value (integer)
+    if(std::stoi(command) > 99)
+    {
+        mCommand = GRIPPER_OPEN;
+        return;
+    }
+
+    //Further Implementations ...
 }

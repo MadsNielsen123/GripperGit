@@ -6,31 +6,34 @@
 
 int main()
 {
-    std::string mesg;
-    URTCP robot;
-    while (1)
+    URTCP UR;
+    while(1)
     {
-        std::string temp = robot.gripperRead();
-        if(temp != "")
+        UR.waitCommand();
+        switch(UR.getCommand())
         {
-            mesg = temp;
+        case GRIPPER_SET: //set command received
+            std::cout << "Set Gripper to: " << UR.getOpenAmount() << std::endl;
+            sleep(2);
+            UR.URContinue();
+            break;
+
+        case GRIPPER_OPEN: //set command received
+            std::cout << "Gripper Opens "<< std::endl;
+            sleep(2);
+            UR.URContinue();
+            break;
+
+        case GRIPPER_GRIP: //set command received
+            std::cout << "Gripper Grips" << std::endl;
+            sleep(3);
+            UR.URContinue();
+            break;
+
+        default:
+            std::cout << "Wrong Command "<< std::endl;
+            break;
         }
-        if(mesg == "100")
-        {
-            std::cout << "working" << std::endl;
-            std::cout << mesg << std::endl;
-            sleep(5);
-            robot.gripperContinue();
-        }
-        std::cout << mesg << std::endl;
-
-
-        /*msg = robot.gripperRead();
-        if(msg != "")
-            robot.gripperContinue();
-
-        std::cout << msg;
-        msg = "";*/
     }
 
 }

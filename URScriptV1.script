@@ -16,14 +16,14 @@ end
 
 #generic send message to raspberry pi
 def msgSend(message):
-	socket_send_line(message)
+	socket_send_string(message, "rasp")
 	textmsg(message)
 end
 
 
 #send signal to raspberry pi to shut down the tcp server 
 def exit():
-	socket_send_line("exit")
+	socket_send_string("exit", "rasp")
 end
 
 
@@ -34,7 +34,7 @@ def gripperSet(amount):
 	else:
 		amount = 0
 	end
-	socket_send_line(amount)
+	socket_send_string(amount, "rasp")
 	textmsg(amount)
 	gripperWait()
 end
@@ -50,7 +50,7 @@ end
 
 #Grip gripper till resistance
 def gripperGrip():
-	socket_send_line("grip")
+	socket_send_string("grip", "rasp")
 	gripperWait()
 end
 
