@@ -16,19 +16,19 @@ find_library(PIGPIO_LIBRARY NAMES pigpio)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-add_executable(GPIOTest1
+add_executable(GPIOTest2
   main.cpp
   DCMotor.h
   DCMotor.cpp
 )
 
-target_link_libraries(GPIOTest1 Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(GPIOTest2 Qt${QT_VERSION_MAJOR}::Core)
 
 # Link pigpio library
-target_link_libraries(GPIOTest1 
+target_link_libraries(GPIOTest2
     Qt${QT_VERSION_MAJOR}::Core
     ${PIGPIO_LIBRARY}
 )
 
 
-target_include_directories(GPIOTest1 PRIVATE ${PIGPIO_INCLUDE_DIRS})
+target_include_directories(GPIOTest2 PRIVATE ${PIGPIO_INCLUDE_DIRS})

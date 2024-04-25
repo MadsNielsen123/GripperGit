@@ -86,6 +86,8 @@ void DCMotor::setupHomeSwitch(unsigned int gpioPinHomeSW)
         std::cerr << "Failed to set homeswitch alert" << std::endl;
         gpioTerminate();
     }
+
+    mHomeSWHit = gpioRead(gpioPinHomeSW);
 }
 
 void DCMotor::setupLimitSwitch(unsigned int gpioPinLimitSW)
@@ -101,6 +103,8 @@ void DCMotor::setupLimitSwitch(unsigned int gpioPinLimitSW)
         std::cerr << "Failed to set limitswitch alert" << std::endl;
         gpioTerminate();
     }
+
+    mLimitSWHit = gpioRead(gpioPinLimitSW);
 }
 
 void DCMotor::stop()

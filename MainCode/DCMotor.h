@@ -16,8 +16,6 @@ public:
 
     void setupHomeSwitch(unsigned int gpioPinHomeSW); //Switch to stop motor
     void setupLimitSwitch(unsigned int gpioPinLimitSW); //Switch to stop motor
-    static void homeSwitchStateChange(int gpio, int level, uint32_t tick);
-    static void limitSwitchStateChange(int gpio, int level, uint32_t tick);
 
     void stop();
     void run(unsigned int speed = 100); //Default Full Speed
@@ -28,6 +26,8 @@ public:
     bool limitSWPressed() const;
 
 private:
+    static void homeSwitchStateChange(int gpio, int level, uint32_t tick);
+    static void limitSwitchStateChange(int gpio, int level, uint32_t tick);
     bool mDir = 0; //Default direction
     bool mMotorRunning = false;
     unsigned int mGpioPinDir0, mGpioPinDir1 , mGpioPinEna;
