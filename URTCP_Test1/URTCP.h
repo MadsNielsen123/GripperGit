@@ -22,6 +22,8 @@ enum Command
     GRIPPER_SET,
     GRIPPER_EXIT,
     GRIPPER_GRIP
+
+    //todo with PC commands
 };
 
 class URTCP
@@ -30,10 +32,12 @@ public:
     URTCP();
     void URTerminate();
     void URContinue();
+    void waitConnection();
 
     void waitCommand();
     unsigned int getOpenAmount() const;
     bool isConnected() const;
+    bool isGripper() const;
     Command getCommand() const;
 
 private:
@@ -46,7 +50,9 @@ private:
 
     unsigned int mOpenAmount;
     bool mIsConnected;
+    bool gripperMode;
     Command mCommand;
+
 };
 
 #endif // URTCP_H

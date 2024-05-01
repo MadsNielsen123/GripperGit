@@ -14,7 +14,6 @@
 #define MAX 80
 #define PORT 2024
 #define SA struct sockaddr
-
 URTCP::URTCP()
 {
     std::cout << "debug msg" << std::endl;
@@ -51,7 +50,10 @@ URTCP::URTCP()
     }
     else
         std::cout << "Socket successfully binded.." << std::endl;
+}
 
+void URTCP::waitConnection()
+{
     // Now server is ready to listen and verification
     if ((listen(sockfd, 5)) != 0) {
         std::cout << "Listen failed..." << std::endl;
@@ -70,6 +72,8 @@ URTCP::URTCP()
     }
     else
         std::cout << "server accept the client..." << std::endl;
+    if(URRead() == "UR")
+        gripperMode = 1;//read what device is connected. send info regarding which device is connected upon device connection.
 
 }
 
@@ -114,6 +118,11 @@ bool URTCP::isConnected() const
     return mIsConnected;
 }
 
+bool URTCP::isGripper() const
+{
+    return gripperMode;
+}
+
 Command URTCP::getCommand() const
 {
     return mCommand;
@@ -124,6 +133,7 @@ void URTCP::waitCommand()
     std::string command = URRead();
     std::cout << command << std::endl;
 
+    //todo with PC commands
     if(command == "exit")
     {
         mIsConnected = false;
