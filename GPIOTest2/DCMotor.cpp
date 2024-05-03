@@ -30,6 +30,7 @@ DCMotor::~DCMotor()
     std::cout << "GPIO END" << std::endl;
     gpioWrite(mGpioPinDir0, 0);
     gpioWrite(mGpioPinDir1, 0);
+    gpioWrite(mGpioPinEna, 0);
     usleep(100000);    // Wait for 100 milliseconds for gpioTerminate to be ready
     gpioTerminate(); //Reset gpio, ram ect. after program done
 }
@@ -114,13 +115,7 @@ void DCMotor::stop()
 }
 
 void DCMotor::run(unsigned int speed)
-{
-    //Change direction if running into SW (Motor and switch safty)
-    if( (mHomeSWHit && !mDir) || (mLimitSWHit && mDir) )
-    {
-        changeDir(); //Change direction
-    }
-
+{   
     mMotorRunning = true;
 
     if(speed > 100)
@@ -135,27 +130,21 @@ void DCMotor::run(unsigned int speed)
 void DCMotor::setDir(bool dir)
 {
     if(dir == mDir)
+    {
+        std::cout << "sameDir" << std::endl;
         return; //Already that direction
+    }
+    mDir = !mDir; //Change dir
 
     if(mMotorRunning) //Stop first
     {
         stop();
-        usleep(300000); // Wait 0.3 seconds to stop rotate
+        usleep(200000); // Wait 0.2 seconds to stop rotate
     }
 
     //Change direction
-    if(mDir)
-    {
-      gpioWrite(mGpioPinDir0, 1);
-      gpioWrite(mGpioPinDir1, 0);
-      mDir = !mDir;
-    }
-    else
-    {      
-        gpioWrite(mGpioPinDir0, 0);
-        gpioWrite(mGpioPinDir1, 1);
-        mDir = !mDir;
-    }
+    gpioWrite(mGpioPinDir0, mDir);
+    gpioWrite(mGpioPinDir1, !mDir);
 
     if(mMotorRunning)
         run(); //Start motor again
