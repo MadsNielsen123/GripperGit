@@ -1,29 +1,65 @@
 #include <QCoreApplication>
 #include <iostream>
 #include <iostream>
-#include <URTCP.h>
-#include <DCMotor.h>
-
-#define DIR_0_PIN 24
-#define DIR_1_PIN 25
-#define ENA_PIN 23
-#define HOME_SW_PIN 17
-#define LIMIT_SW_PIN 27
+#include <server.h>
+#include <GripperController.h>
+#include <Db.h>
 
 int main()
 {
-    URTCP UR;
-    DCMotor motor(DIR_0_PIN, DIR_1_PIN, ENA_PIN);
-    motor.setupHomeSwitch(HOME_SW_PIN);
-    motor.setupLimitSwitch(LIMIT_SW_PIN);
+    Server server;
+    server.waitConnection();
+    DB database;
 
-    while(true)
+    if(server.isUR())
     {
-        if(motor.limitSWPressed())
-                break;
-    }
+        std::cout << "Connected to UR" << std::endl;
+        GripperController gripper;
+        database.insertSessionStart("UR TEST");
 
-    std::cout << "limit pressed" << std::endl;
+        while(server.isConnected())
+        {
+            server.waitCommand();
+            switch(server.getCommand())
+            {
+            case GRIPPER_EXIT:
+                //server.isConnected gets set to false
+                server.URContinue();
+                break;
+
+            case GRIPPER_GRIP:
+                database.insertGribStart();
+                gripper.grip();
+                server.URContinue();
+                break;
+
+            case GRIPPER_OPEN:
+                gripper.open();
+                database.insertGribSlut();
+                server.URContinue();
+                break;
+
+            case GRIPPER_INIT:
+                gripper.open();
+                server.URContinue();
+                break;
+            }
+        }
+        server.terminate();
+        database.insertSessionSlut();
+    }
+    else //PC
+    {
+        std::cout << "Connected to PC" << std::endl;
+        database.insertSessionStart("PC TEST");
+       /* while(server.isConnected())
+        {
+            //Poul
+        }*/
+        sleep(2);
+        server.terminate();
+        database.insertSessionSlut();
+    }
 
     return 0;
 }

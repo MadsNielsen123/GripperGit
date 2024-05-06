@@ -17,8 +17,8 @@ DCMotor::DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gp
     gpioSetMode(gpioPinEna, PI_OUTPUT);
     gpioSetPWMrange(gpioPinEna, 100); //0-100%
     gpioSetPWMfrequency(gpioPinEna, 500); //500Hz
-    gpioWrite(mGpioPinDir0, 1); //Default direction
-    gpioWrite(mGpioPinDir1, 0); //Default direction
+    gpioWrite(mGpioPinDir0, mDir); //Set dir
+    gpioWrite(mGpioPinDir1, !mDir); //Set dir
     mHomeSWHit = false;
     mLimitSWHit = false;
     mMotorRunning = false;
@@ -110,8 +110,16 @@ void DCMotor::setupLimitSwitch(unsigned int gpioPinLimitSW)
 
 void DCMotor::stop()
 {
+    mMotorRunning = false;
+
+    //Break
+    changeDir();
+    usleep(10000); //Break for 5ms
+
+    //Stop
     gpioPWM(mGpioPinEna, 0); //Resets PWM if enabled
     gpioWrite(mGpioPinEna, 0); //Set pin to 0
+    changeDir();  //Change back again
 }
 
 void DCMotor::run(unsigned int speed)
@@ -130,15 +138,13 @@ void DCMotor::run(unsigned int speed)
 void DCMotor::setDir(bool dir)
 {
     if(dir == mDir)
-    {
-        std::cout << "sameDir" << std::endl;
         return; //Already that direction
-    }
-    mDir = !mDir; //Change dir
+    mDir = dir; //Change dir
 
     if(mMotorRunning) //Stop first
     {
         stop();
+        mMotorRunning = true; //Run again after
         usleep(200000); // Wait 0.2 seconds to stop rotate
     }
 

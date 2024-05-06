@@ -1,0 +1,32 @@
+def initGripper():
+ isOpen = socket_open("192.168.1.69",2024, "rasp")
+ socket_send_string("UR", "rasp")
+ sleep(3.0)
+ socket_send_string("init", "rasp")
+ gripperWait()
+end
+
+def gripperWait():
+ textmsg(socket_read_line("rasp", timeout = 20))
+end
+
+#send signal to raspberry pi to shut down the tcp server 
+def exit():
+ socket_send_string("exit", "rasp")
+ gripperWait()
+end
+
+def gripperOpen():
+ socket_send_string("open", "rasp")
+ textmsg(100)
+ gripperWait()
+end
+
+def gripperGrip():
+ socket_send_string("grip", "rasp")
+ gripperWait()
+end
+
+
+#functions called immediately
+initGripper()

@@ -1,6 +1,6 @@
-#ifndef URTCP_H
-#define URTCP_H
-#include <QCoreApplication>
+#ifndef SERVER_H
+#define SERVER_H
+
 #include <stdio.h>
 #include <netdb.h>
 #include <netinet/in.h>
@@ -17,42 +17,39 @@
 
 enum Command
 {
-    GRIPPER_CLOSE,
-    GRIPPER_OPEN,
-    GRIPPER_SET,
+    GRIPPER_INIT,
     GRIPPER_EXIT,
+    GRIPPER_OPEN,    
     GRIPPER_GRIP
 
-    //todo with PC commands
+    //PC-TODO
 };
 
-class URTCP
+class Server
 {
 public:
-    URTCP();
-    void URTerminate();
+    Server();
+    void terminate();
     void URContinue();
     void waitConnection();
-
     void waitCommand();
-    unsigned int getOpenAmount() const;
     bool isConnected() const;
-    bool isGripper() const;
+    bool isUR() const;
     Command getCommand() const;
 
 private:
-    std::string URRead();
-    void URWrite(std::string msg);
+    std::string clientRead();
+    void clientWrite(std::string msg);
+
     char buff[MAX];
     int sockfd, connfd;
     socklen_t len;
     struct sockaddr_in servaddr, cli;
-
-    unsigned int mOpenAmount;
-    bool mIsConnected;
-    bool gripperMode;
     Command mCommand;
+
+    bool mIsConnected;
+    bool mIsUR;
 
 };
 
-#endif // URTCP_H
+#endif // SERVER_H

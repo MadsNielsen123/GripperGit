@@ -1,0 +1,19 @@
+create schema GripperDB;
+use GripperDB;
+
+create table session (
+	sess_id int auto_increment primary key,
+	tid_start datetime not null, 
+	tid_slut datetime,
+	device_name char(50)
+);
+
+CREATE TABLE grib (
+    nr INT AUTO_INCREMENT PRIMARY KEY not null,
+    tid_start DATETIME NOT NULL,
+    tid_slut DATETIME,
+    grib_size INT,
+    sess_id INT,
+    FOREIGN KEY (sess_id) REFERENCES session(sess_id)
+);
+

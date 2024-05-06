@@ -1,5 +1,5 @@
-#include "URTCP.h"
 #include <QCoreApplication>
+#include "server.h"
 #include <stdio.h>
 #include <netdb.h>
 #include <netinet/in.h>
@@ -14,8 +14,7 @@
 #define MAX 80
 #define PORT 2024
 #define SA struct sockaddr
-
-URTCP::URTCP()
+Server::Server()
 {
     std::cout << "debug msg" << std::endl;
     // socket create and verification
@@ -51,7 +50,10 @@ URTCP::URTCP()
     }
     else
         std::cout << "Socket successfully binded.." << std::endl;
+}
 
+void Server::waitConnection()
+{
     // Now server is ready to listen and verification
     if ((listen(sockfd, 5)) != 0) {
         std::cout << "Listen failed..." << std::endl;
@@ -70,10 +72,13 @@ URTCP::URTCP()
     }
     else
         std::cout << "server accept the client..." << std::endl;
+    if(clientRead() == "client")
+        mIsUR = 1;//read what device is connected. send info regarding which device is connected upon device connection.
 
+    mIsConnected = true;
 }
 
-std::string URTCP::URRead()
+std::string Server::clientRead()
 {
     bzero(buff, MAX); //Clear buffer
 
@@ -84,9 +89,7 @@ std::string URTCP::URRead()
     return msg;
 }
 
-unsigned int URTCP::getOpenAmount() const {return mOpenAmount;}
-
-void URTCP::URWrite(std::string msg)
+void Server::clientWrite(std::string msg)
 {
     msg += "\n";
     std::cout << msg << std::endl;
@@ -94,40 +97,43 @@ void URTCP::URWrite(std::string msg)
     write(connfd, out, sizeof(out));
 }
 
-void URTCP::URContinue()
+void Server::URContinue()
 {
     char out[2];
     out[0]='h';
     out[1]='\n';
     write(connfd, out, sizeof(out));
-    //URWrite("continue");
+    //clientWrite("continue");
 }
 
-void URTCP::URTerminate()
+void Server::terminate()
 {
     close(connfd);
     close(sockfd);
 }
 
-bool URTCP::isConnected() const
+bool Server::isConnected() const
 {
     return mIsConnected;
 }
 
-Command URTCP::getCommand() const
+bool Server::isUR() const
+{
+    return mIsUR;
+}
+
+Command Server::getCommand() const
 {
     return mCommand;
 }
 
-void URTCP::waitCommand()
+void Server::waitCommand()
 {
-    std::string command = URRead();
-    std::cout << command << std::endl;
+    std::string command = clientRead();
 
     if(command == "exit")
     {
         mIsConnected = false;
-        URTerminate();
         mCommand = GRIPPER_EXIT;
         return;
     }
@@ -138,13 +144,15 @@ void URTCP::waitCommand()
         return;
     }
 
-
-    //Else Command must be a set-value (integer)
-    if(std::stoi(command) > 99)
+    if(command == "open")
     {
         mCommand = GRIPPER_OPEN;
         return;
     }
 
-    //Further Implementations ...
+    if(command == "init")
+    {
+        mCommand = GRIPPER_INIT;
+        return;
+    }
 }
