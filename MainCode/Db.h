@@ -28,7 +28,9 @@ public:
 
     void printSession();
     void printGrib();
-
+    
+    std::vector<std::string> getLast10GripData();
+    std::vector<std::string> getLast10SessionData();
 
 
 
