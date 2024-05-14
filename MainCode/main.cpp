@@ -23,24 +23,24 @@ int main()
             {
             case GRIPPER_EXIT:
                 //server.isConnected gets set to false
-                server.URContinue();
+                server.clientContinue();
                 break;
 
             case GRIPPER_GRIP:
                 database.insertGribStart();
                 gripper.grip();
-                server.URContinue();
+                server.clientContinue();
                 break;
 
             case GRIPPER_OPEN:
                 gripper.open();
                 database.insertGribSlut();
-                server.URContinue();
+                server.clientContinue();
                 break;
 
             case GRIPPER_INIT:
                 gripper.open();
-                server.URContinue();
+                server.clientContinue();
                 break;
             }
         }
@@ -49,6 +49,7 @@ int main()
     }
     else //PC
     {
+        server.clientContinue();
         std::cout << "Connected to PC" << std::endl;
         database.insertSessionStart("PC TEST");
 
@@ -61,13 +62,14 @@ int main()
 
         while(server.isConnected())
         {
+            std::cout << "Ready for next command: " << std::endl;
             server.waitCommand();
             switch(server.getCommand())
             {
             case PC_EXIT:
                 //server.isConnected gets set to false
                 std::cout << "PC EXIT CALLED" << std::endl;
-                break;
+                break;std::cout << "PC EXIT CALLED" << std::endl;
 
             case GET_LAST_GRIPS:
                 //rune fylder data med data.push_back();

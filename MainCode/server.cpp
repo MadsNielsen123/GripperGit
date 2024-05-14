@@ -16,7 +16,6 @@
 #define SA struct sockaddr
 Server::Server()
 {
-    std::cout << "debug msg" << std::endl;
     // socket create and verification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd == -1) {
@@ -72,7 +71,8 @@ void Server::waitConnection()
     }
     else
         std::cout << "server accept the client..." << std::endl;
-    if(clientRead() == "client")
+
+    if(clientRead() == "UR")
         mIsUR = 1;//read what device is connected. send info regarding which device is connected upon device connection.
 
     mIsConnected = true;
@@ -86,18 +86,17 @@ std::string Server::clientRead()
     read(connfd, buff, sizeof(buff));
 
     std::string msg(buff);
+    std::cout << "Client: " <<  msg << std::endl;
     return msg;
 }
 
-void Server::clientWrite(std::string msg)
+void Server::clientWrite(const std::string& msg)
 {
-    msg += "\n";
-    std::cout << msg << std::endl;
     char const* out = msg.c_str();
     write(connfd, out, sizeof(out));
 }
 
-void Server::URContinue()
+void Server::clientContinue()
 {
     char out[2];
     out[0]='h';
@@ -205,4 +204,5 @@ void Server::sendData(std::vector<std::string> &data)
     }
     clientWrite("Done");
     acknowledge = clientRead();
+    clientContinue();
 }

@@ -37,7 +37,7 @@ class Server
 public:
     Server();
     void terminate();
-    void URContinue();
+    void clientContinue();
     void waitConnection();
     void waitCommand();
     bool isConnected() const;
@@ -47,7 +47,7 @@ public:
 
 private:
     std::string clientRead();
-    void clientWrite(std::string& msg);
+    void clientWrite(const std::string& msg);
 
     char buff[MAX];
     int sockfd, connfd;
@@ -55,8 +55,8 @@ private:
     struct sockaddr_in servaddr, cli;
     Command mCommand;
 
-    bool mIsConnected;
-    bool mIsUR;
+    bool mIsConnected = 0;
+    bool mIsUR = 0;
 
 };
 
