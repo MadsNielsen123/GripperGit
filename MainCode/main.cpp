@@ -51,10 +51,56 @@ int main()
     {
         std::cout << "Connected to PC" << std::endl;
         database.insertSessionStart("PC TEST");
-       /* while(server.isConnected())
+
+        std::vector<std::string> data;
+        data.push_back("Data1");
+        data.push_back("Data2");
+        data.push_back("Data3");
+        data.push_back("Data4");
+        data.push_back("Data5");
+
+        while(server.isConnected())
         {
-            //Poul
-        }*/
+            server.waitCommand();
+            switch(server.getCommand())
+            {
+            case PC_EXIT:
+                //server.isConnected gets set to false
+                std::cout << "PC EXIT CALLED" << std::endl;
+                break;
+
+            case GET_LAST_GRIPS:
+                //rune fylder data med data.push_back();
+                std::cout << "GET LAST GRIPS CALLED" << std::endl;
+                server.sendData(data);
+                break;
+
+            case GET_LAST_SESSIONS:
+                //rune fylder data med data.push_back();
+                std::cout << "GET LAST SESSION CALLED" << std::endl;
+                server.sendData(data);
+                break;
+
+            case GET_AVERAGE_SIZE:
+                //rune fylder data med data.push_back();
+                std::cout << "GET_AVERAGE_SIZE CALLED" << std::endl;
+                server.sendData(data);
+                break;
+
+            case GET_AVERAGE_SESSION_DURATION:
+                //rune fylder data med data.push_back();
+                std::cout << "GET AVERAGER SESSION DURATION CALLED" << std::endl;
+                server.sendData(data);
+                break;
+            case GET_AVERAGE_GRIP_DURATION:
+                //rune fylder data med data.push_back();
+                std::cout << "GET AVERAGE GRIP DURATION CALLED" << std::endl;
+                server.sendData(data);
+                break;
+            }
+            //data.clear();
+        }
+
         sleep(2);
         server.terminate();
         database.insertSessionSlut();

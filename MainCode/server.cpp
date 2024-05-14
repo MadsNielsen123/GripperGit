@@ -155,4 +155,54 @@ void Server::waitCommand()
         mCommand = GRIPPER_INIT;
         return;
     }
+
+    if(command == "getGrips")
+    {
+        mCommand = GET_LAST_GRIPS;
+        return;
+    }
+
+    if(command == "pcexit")
+    {
+        mIsConnected = false;
+        mCommand = PC_EXIT;
+        return;
+    }
+
+    if(command == "getSessions")
+    {
+        mCommand = GET_LAST_SESSIONS;
+        return;
+    }
+
+    if(command == "getSize")
+    {
+        mCommand = GET_AVERAGE_SIZE;
+        return;
+    }
+
+    if(command == "getSessionDuration")
+    {
+        mCommand = GET_AVERAGE_SESSION_DURATION;
+        return;
+    }
+
+    if(command == "getGripDuration")
+    {
+        mCommand = GET_AVERAGE_GRIP_DURATION;
+        return;
+    }
+}
+
+void Server::sendData(std::vector<std::string> &data)
+{
+    std::string acknowledge;
+
+    for(std::string& line: data)
+    {
+        clientWrite(line);
+        acknowledge = clientRead();
+    }
+    clientWrite("Done");
+    acknowledge = clientRead();
 }

@@ -10,6 +10,8 @@
 #include <sys/types.h>
 #include <unistd.h> // read(), write(), close()
 #include <iostream>
+#include <vector>
+
 
 #define MAX 80
 #define PORT 2024
@@ -20,9 +22,14 @@ enum Command
     GRIPPER_INIT,
     GRIPPER_EXIT,
     GRIPPER_OPEN,    
-    GRIPPER_GRIP
+    GRIPPER_GRIP,
 
-    //PC-TODO
+    PC_EXIT,
+    GET_LAST_GRIPS,
+    GET_LAST_SESSIONS,
+    GET_AVERAGE_SIZE,
+    GET_AVERAGE_SESSION_DURATION,
+    GET_AVERAGE_GRIP_DURATION
 };
 
 class Server
@@ -36,10 +43,11 @@ public:
     bool isConnected() const;
     bool isUR() const;
     Command getCommand() const;
+    void sendData(std::vector<std::string>& data);
 
 private:
     std::string clientRead();
-    void clientWrite(std::string msg);
+    void clientWrite(std::string& msg);
 
     char buff[MAX];
     int sockfd, connfd;
