@@ -72,20 +72,22 @@ int main()
                 break;std::cout << "PC EXIT CALLED" << std::endl;
 
             case GET_LAST_GRIPS:
-                data.push_back(database.getLast10GripData());
+                data = database.getLast10GripData();
                 // hvis denne ikke virker -------->
                 // std::vector<std::string> gripData = database.getLast10GripData();
-                // data.push_back(gripData);
+                // for (const auto& info : gripData) { data.push_back(info); }
                 
                 std::cout << "GET LAST GRIPS CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_LAST_SESSIONS:
-                data.push_back(database.getLast10sessionData());
+                data = database.getLast10sessionData();
                 // hvis denne ikke virker -------->
                 // std::vector<std::string> sessionData = database.getLast10SessionData();
-                // data.push_back(sessionData);
+                // for (const auto& info : sessionData) { data.push_back(info); }
+                
+                
                 std::cout << "GET LAST SESSION CALLED" << std::endl;
                 server.sendData(data);
                 break;
@@ -105,7 +107,6 @@ int main()
                 server.sendData(data);
                 break;
             case GET_AVERAGE_GRIP_DURATION:
-                //rune fylder data med data.push_back();
                 data.push_back(database.getAverageGripDuration());
                 
                 std::cout << "GET AVERAGE GRIP DURATION CALLED" << std::endl;
