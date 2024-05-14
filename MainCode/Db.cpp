@@ -191,7 +191,7 @@ std::vector<std::string> DB::getLast10SessionsData() {
     std::vector<std::string> data;
 
     // Udfører en SELECT-query for at hente de sidste 10 sessioner
-    mQ.exec("SELECT * FROM session ORDER BY tid_start DESC LIMIT 10");
+    mQ.exec("SELECT * FROM session ORDER BY sess_id DESC LIMIT 10");
 
     // Itererer gennem resultatet af SELECT-queryen
     while (mQ.next()) {
