@@ -31,6 +31,8 @@ public:
     
     std::vector<std::string> getLast10GripData();
     std::vector<std::string> getLast10SessionData();
+    double getAverageSessionDuration();
+    double getAverageGripDuration();
 
 
 
