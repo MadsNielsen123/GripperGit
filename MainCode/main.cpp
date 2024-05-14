@@ -72,31 +72,42 @@ int main()
                 break;std::cout << "PC EXIT CALLED" << std::endl;
 
             case GET_LAST_GRIPS:
-                //rune fylder data med data.push_back();
                 data.push_back(database.getLast10GripData());
+                // hvis denne ikke virker -------->
+                // std::vector<std::string> gripData = database.getLast10GripData();
+                // data.push_back(gripData);
+                
                 std::cout << "GET LAST GRIPS CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_LAST_SESSIONS:
-                //rune fylder data med data.push_back();
+                data.push_back(database.getLast10sessionData());
+                // hvis denne ikke virker -------->
+                // std::vector<std::string> sessionData = database.getLast10SessionData();
+                // data.push_back(sessionData);
                 std::cout << "GET LAST SESSION CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_AVERAGE_SIZE:
-                //rune fylder data med data.push_back();
+                //fylder data med data.push_back(); 
+                //ingen metode til at gemme størrelse i nu
+                
                 std::cout << "GET_AVERAGE_SIZE CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_AVERAGE_SESSION_DURATION:
-                //rune fylder data med data.push_back();
+                data.push_back(database.getAverageSessionDuration());
+                
                 std::cout << "GET AVERAGER SESSION DURATION CALLED" << std::endl;
                 server.sendData(data);
                 break;
             case GET_AVERAGE_GRIP_DURATION:
                 //rune fylder data med data.push_back();
+                data.push_back(database.getAverageGripDuration());
+                
                 std::cout << "GET AVERAGE GRIP DURATION CALLED" << std::endl;
                 server.sendData(data);
                 break;
