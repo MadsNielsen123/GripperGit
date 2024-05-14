@@ -153,3 +153,37 @@ std::string DB::getTime(){
         return dato_tid;
 }
 
+std::vector<std::string> DB::getLast10GripData() {
+    std::vector<std::string> data;
+
+    // Udfører en forespørgsel for at få de sidste 10 gribdata
+    mQ.prepare("SELECT * FROM grib ORDER BY nr DESC LIMIT 10");
+    if (mQ.exec()) {
+        while (mQ.next()) {
+            int nr = mQ.value(0).toInt();
+            QString tid_start = mQ.value(1).toString();
+            QString tid_slut = mQ.value(2).toString();
+            int size = mQ.value(3).toInt();
+            int sess_id = mQ.value(4).toInt();
+
+            // Formatterer dataene til en streng
+            QString gripData = QString("NR: %1, Tid_start: %2, Tid_slut: %3, Size: %4, Sess_id: %5")
+                                .arg(nr)
+                                .arg(tid_start)
+                                .arg(tid_slut)
+                                .arg(size)
+                                .arg(sess_id);
+
+            // Konverterer QString til std::string
+            std::string gripDataStr = gripData.toStdString();
+
+            // Tilføjer strengen til vektoren
+            data.push_back(gripDataStr);
+        }
+    } else {
+        qDebug() << "Fejl under udførelsen af forespørgslen: " << mQ.lastError().text();
+    }
+
+    return data;
+}
+
