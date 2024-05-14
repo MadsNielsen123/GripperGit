@@ -8,7 +8,12 @@ std::chrono::steady_clock::time_point DCMotor::mLast_isr_time_limitsw;
 
 DCMotor::DCMotor(unsigned int gpioPinDir0, unsigned int gpioPinDir1, unsigned gpioPinEna)
 {
-    gpioInitialise();
+    if(gpioInitialise() < 0)
+    {
+        std::cerr << "Failed to init pigpio - Closing program" << std::endl;
+        exit(1);
+    }
+
     mGpioPinDir0 = gpioPinDir0;
     mGpioPinDir1 = gpioPinDir1;
     mGpioPinEna = gpioPinEna;
@@ -82,6 +87,7 @@ void DCMotor::setupHomeSwitch(unsigned int gpioPinHomeSW)
         gpioTerminate();
     }
     gpioSetPullUpDown(gpioPinHomeSW, PI_PUD_DOWN);
+
     // Set alert function for falling edge
     if (gpioSetAlertFunc(gpioPinHomeSW, homeSwitchStateChange) != 0) {
         std::cerr << "Failed to set homeswitch alert" << std::endl;

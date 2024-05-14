@@ -1,6 +1,5 @@
 #include <QCoreApplication>
 #include <iostream>
-#include <iostream>
 #include <server.h>
 #include <GripperController.h>
 #include <Db.h>
