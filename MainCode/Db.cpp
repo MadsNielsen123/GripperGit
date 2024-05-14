@@ -187,3 +187,69 @@ std::vector<std::string> DB::getLast10GripData() {
     return data;
 }
 
+std::vector<std::string> DB::getLast10SessionsData() {
+    std::vector<std::string> data;
+
+    // Udfører en SELECT-query for at hente de sidste 10 sessioner
+    mQ.exec("SELECT * FROM session ORDER BY tid_start DESC LIMIT 10");
+
+    // Itererer gennem resultatet af SELECT-queryen
+    while (mQ.next()) {
+        int sess_id = mQ.value(0).toInt();
+        QString tid_start = mQ.value(1).toString();
+        QString tid_slut = mQ.value(2).toString();
+        QString name = mQ.value(3).toString();
+
+        // Formatterer dataene
+        QDateTime time_start = QDateTime::fromString(tid_start, "yyyy-MM-ddTHH:mm:ss.zzz");
+        QString formattedTime_start = time_start.toString("dd/MM/yyyy hh:mm:ss");
+
+        QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
+        QString formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss");
+
+        // Samler dataene i en streng og tilføjer den til vektoren
+        std::string sessionData = "|Sess id: " + std::to_string(sess_id) + "|  |Tid_start: " + formattedTime_start.toStdString() + "|  |tid_slut: " + formattedTime_slut.toStdString() + "|  |Name: " + name.toStdString() + "|";
+        data.push_back(sessionData);
+    }
+
+    return data;
+}
+
+double DB::getAverageSessionDuration() {
+    double averageDuration = 0.0;
+    int totalSessions = 0;
+
+    mQ.exec("SELECT TIMESTAMPDIFF(SECOND, tid_start, tid_slut) AS session_duration FROM session WHERE tid_slut IS NOT NULL");
+    
+    while (mQ.next()) {
+        int sessionDurationInSeconds = mQ.value("session_duration").toInt();
+        averageDuration += sessionDurationInSeconds;
+        totalSessions++;
+    }
+
+    if (totalSessions > 0) {
+        averageDuration /= totalSessions; // Beregning af gennemsnitlig session varighed i sekunder
+    }
+
+    return averageDuration;
+}
+
+double DB::getAverageGripDuration() {
+    double averageDuration = 0.0;
+    int totalSessions = 0;
+
+    mQ.exec("SELECT TIMESTAMPDIFF(SECOND, tid_start, tid_slut) AS grip_duration FROM grib WHERE tid_slut IS NOT NULL");
+    
+    while (mQ.next()) {
+        int sessionDurationInSeconds = mQ.value("grip_duration").toInt();
+        averageDuration += sessionDurationInSeconds;
+        totalSessions++;
+    }
+
+    if (totalSessions > 0) {
+        averageDuration /= totalSessions; // Beregning af gennemsnitlig session varighed i sekunder
+    }
+
+    return averageDuration;
+}
+
