@@ -73,6 +73,7 @@ int main()
 
             case GET_LAST_GRIPS:
                 //rune fylder data med data.push_back();
+                data.push_back(database.getLast10GripData());
                 std::cout << "GET LAST GRIPS CALLED" << std::endl;
                 server.sendData(data);
                 break;
