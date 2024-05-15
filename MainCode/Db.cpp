@@ -172,7 +172,7 @@ std::vector<std::string> DB::getLast10GripData() {
 
         QString formatted_slut; //tjekker om den er tom, tilføjer mellemrum
         if (tid_slut.isEmpty()){
-                formatted_slut = "                   "; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
+                formatted_slut = "-------------------"; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
         } else {
                 QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
                 formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
@@ -218,7 +218,7 @@ std::vector<std::string> DB::getLast10SessionData() {
 
         QString formatted_slut; //tjekker om den er tom, tilføjer mellemrum
         if (tid_slut.isEmpty()){
-                formatted_slut = "                   "; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
+                formatted_slut = "-------------------"; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
         } else {
                 QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
                 formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
