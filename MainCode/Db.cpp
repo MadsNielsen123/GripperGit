@@ -187,7 +187,7 @@ std::vector<std::string> DB::getLast10GripData() {
     return data;
 }
 
-std::vector<std::string> DB::getLast10SessionsData() {
+std::vector<std::string> DB::getLast10SessionData() {
     std::vector<std::string> data;
 
     // Udfører en SELECT-query for at hente de sidste 10 sessioner

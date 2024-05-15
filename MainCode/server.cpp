@@ -11,9 +11,6 @@
 #include <iostream>
 #include "errno.h"
 
-#define MAX 80
-#define PORT 2024
-#define SA struct sockaddr
 Server::Server()
 {
     // socket create and verification
@@ -86,14 +83,16 @@ std::string Server::clientRead()
     read(connfd, buff, sizeof(buff));
 
     std::string msg(buff);
-    std::cout << "Client: " <<  msg << std::endl;
     return msg;
 }
 
 void Server::clientWrite(const std::string& msg)
 {
-    char const* out = msg.c_str();
-    write(connfd, out, sizeof(out));
+    const char* out = msg.data();
+    char outArray[msg.size()+1];
+    std::copy(out, out + msg.size(), outArray);
+    outArray[msg.size()] = '\0';
+    write(connfd, outArray, sizeof(outArray));
 }
 
 void Server::clientContinue()
@@ -191,6 +190,8 @@ void Server::waitCommand()
         mCommand = GET_AVERAGE_GRIP_DURATION;
         return;
     }
+
+    mCommand = BAD_COMMAND;
 }
 
 void Server::sendData(std::vector<std::string> &data)
@@ -200,9 +201,9 @@ void Server::sendData(std::vector<std::string> &data)
     for(std::string& line: data)
     {
         clientWrite(line);
+        std::cout << line << std::endl;
         acknowledge = clientRead();
     }
-    clientWrite("Done");
+    clientWrite("done");
     acknowledge = clientRead();
-    clientContinue();
 }

@@ -49,7 +49,6 @@ int main()
     }
     else //PC
     {
-        server.clientContinue();
         std::cout << "Connected to PC" << std::endl;
         database.insertSessionStart("PC Session");
 
@@ -67,13 +66,13 @@ int main()
                 break;
 
             case GET_LAST_GRIPS:
-                data = database.getLast10GripData();               
+                data = database.getLast10GripData();
                 std::cout << "GET LAST GRIPS CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_LAST_SESSIONS:
-                data = database.getLast10sessionData();            
+                data = database.getLast10SessionData();
                 std::cout << "GET LAST SESSION CALLED" << std::endl;
                 server.sendData(data);
                 break;
@@ -86,14 +85,19 @@ int main()
                 break;
 
             case GET_AVERAGE_SESSION_DURATION:
-                data.push_back(database.getAverageSessionDuration());              
+                data.push_back(database.getAverageSessionDuration());
                 std::cout << "GET AVERAGER SESSION DURATION CALLED" << std::endl;
                 server.sendData(data);
                 break;
+
             case GET_AVERAGE_GRIP_DURATION:
-                data.push_back(database.getAverageGripDuration());              
+                data.push_back(database.getAverageGripDuration());
                 std::cout << "GET AVERAGE GRIP DURATION CALLED" << std::endl;
                 server.sendData(data);
+                break;
+
+            default:
+                std::cout << "Bad command. Terminating program." << std::endl;
                 break;
             }
             data.clear();
