@@ -80,7 +80,7 @@ void DB::insertGribSlut(){
     mQ.exec();
 }
 
-void DB::printSession(){
+/* void DB::printSession(){
     std::cout << "Tidspunkter for en session" << std::endl;
     mQ.exec("SELECT * FROM session");
     while (mQ.next()){
@@ -127,7 +127,7 @@ void DB::printGrib(){
         qDebug() << "|NR:" << nr << "|  |Tid_start:" << formattedTime_start << "|  |tid_sliut:" << formattedTime_slut << "|  |Size:" << size << "|  |Sess_id:" << sess_id << "|";
     }
 
-}
+} */
 
 std::string DB::getTime(){
     // Få det nuværende tidspunkt
