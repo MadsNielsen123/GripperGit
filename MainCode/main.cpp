@@ -10,11 +10,11 @@ int main()
     server.waitConnection();
     DB database;
 
-    if(server.isUR())
+    if(server.isUR()) //UR
     {
         std::cout << "Connected to UR" << std::endl;
         GripperController gripper;
-        database.insertSessionStart("UR TEST");
+        database.insertSessionStart("UR Session");
 
         while(server.isConnected())
         {
@@ -51,14 +51,9 @@ int main()
     {
         server.clientContinue();
         std::cout << "Connected to PC" << std::endl;
-        database.insertSessionStart("PC TEST");
+        database.insertSessionStart("PC Session");
 
         std::vector<std::string> data;
-        data.push_back("Data1");
-        data.push_back("Data2");
-        data.push_back("Data3");
-        data.push_back("Data4");
-        data.push_back("Data5");
 
         while(server.isConnected())
         {
@@ -69,51 +64,39 @@ int main()
             case PC_EXIT:
                 //server.isConnected gets set to false
                 std::cout << "PC EXIT CALLED" << std::endl;
-                break;std::cout << "PC EXIT CALLED" << std::endl;
+                break;
 
             case GET_LAST_GRIPS:
-                data = database.getLast10GripData();
-                // hvis denne ikke virker -------->
-                // std::vector<std::string> gripData = database.getLast10GripData();
-                // for (const auto& info : gripData) { data.push_back(info); }
-                
+                data = database.getLast10GripData();               
                 std::cout << "GET LAST GRIPS CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_LAST_SESSIONS:
-                data = database.getLast10sessionData();
-                // hvis denne ikke virker -------->
-                // std::vector<std::string> sessionData = database.getLast10SessionData();
-                // for (const auto& info : sessionData) { data.push_back(info); }
-                
-                
+                data = database.getLast10sessionData();            
                 std::cout << "GET LAST SESSION CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_AVERAGE_SIZE:
                 //fylder data med data.push_back(); 
-                //ingen metode til at gemme størrelse i nu
-                
+                //ingen metode til at gemme størrelse i nu                
                 std::cout << "GET_AVERAGE_SIZE CALLED" << std::endl;
                 server.sendData(data);
                 break;
 
             case GET_AVERAGE_SESSION_DURATION:
-                data.push_back(database.getAverageSessionDuration());
-                
+                data.push_back(database.getAverageSessionDuration());              
                 std::cout << "GET AVERAGER SESSION DURATION CALLED" << std::endl;
                 server.sendData(data);
                 break;
             case GET_AVERAGE_GRIP_DURATION:
-                data.push_back(database.getAverageGripDuration());
-                
+                data.push_back(database.getAverageGripDuration());              
                 std::cout << "GET AVERAGE GRIP DURATION CALLED" << std::endl;
                 server.sendData(data);
                 break;
             }
-            //data.clear();
+            data.clear();
         }
 
         sleep(2);

@@ -215,7 +215,7 @@ std::vector<std::string> DB::getLast10SessionsData() {
     return data;
 }
 
-double DB::getAverageSessionDuration() {
+std::string DB::getAverageSessionDuration() {
     double averageDuration = 0.0;
     int totalSessions = 0;
 
@@ -231,10 +231,10 @@ double DB::getAverageSessionDuration() {
         averageDuration /= totalSessions; // Beregning af gennemsnitlig session varighed i sekunder
     }
 
-    return averageDuration;
+    return std::to_string(averageDuration);
 }
 
-double DB::getAverageGripDuration() {
+std::string DB::getAverageGripDuration() {
     double averageDuration = 0.0;
     int totalSessions = 0;
 
@@ -250,6 +250,6 @@ double DB::getAverageGripDuration() {
         averageDuration /= totalSessions; // Beregning af gennemsnitlig session varighed i sekunder
     }
 
-    return averageDuration;
+    return std::to_string(averageDuration);
 }
 
