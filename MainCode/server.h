@@ -13,12 +13,13 @@
 #include <vector>
 
 
-#define MAX 80
+#define MAX 160
 #define PORT 2024
 #define SA struct sockaddr
 
 enum Command
 {
+    BAD_COMMAND,
     GRIPPER_INIT,
     GRIPPER_EXIT,
     GRIPPER_OPEN,    
