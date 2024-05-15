@@ -8,7 +8,7 @@
 #include <sys/socket.h>
 #include <unistd.h> // read(), write(), close()
 #include <iostream>
-#define MAX 80
+#define MAX 160
 #define PORT 2024
 #define SA struct sockaddr
 
@@ -42,11 +42,13 @@ void serverWrite(int sockfd)
     {
         bzero(buff, sizeof(buff));
         read(sockfd, buff, sizeof(buff));
-        printf("From Server : %s", buff);
+        printf("%s", buff);
+		std::cout << std::endl;
         if(!strncmp(buff,"invalid command",15) || !strncmp(buff,"done",4))
         {
+			write(sockfd,ack,sizeof(ack));
             std::cout << "\nWhat would you like to query?\n\
-            exit(exit)\n\
+            exit(pcexit)\n\
             Get last 10 sessions(getSessions)\n\
             Get last 10 grips(getGrips)\n\
             Get average object size(getSize)\n\
@@ -63,7 +65,7 @@ void serverWrite(int sockfd)
             continue;
         }
 
-        if (!strncmp(buff, "exit", 4))
+        if (!strncmp(buff, "pcexit", 6))
         {
             printf("Client Exit...\n");
             break;
@@ -92,8 +94,7 @@ int main()
 
     // assign IP, PORT
     servaddr.sin_family = AF_INET;
-    servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
-    //servaddr.sin_addr.s_addr = inet_addr("192.168.1.69");
+    servaddr.sin_addr.s_addr = inet_addr("192.168.1.69");
     servaddr.sin_port = htons(PORT);
 
     // connect the client socket to server socket
