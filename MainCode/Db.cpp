@@ -166,11 +166,23 @@ std::vector<std::string> DB::getLast10GripData() {
             int size = mQ.value(3).toInt();
             int sess_id = mQ.value(4).toInt();
 
+         //formatere tiden (start) fra (yyy-MM-ddTHH:mm:ss.zzz) to (dd/mm/yyyy hh:mm:ss AP)
+        QDateTime time_start = QDateTime::fromString(tid_start, "yyyy-MM-ddTHH:mm:ss.zzz");
+        QString formattedTime_start = time_start.toString("dd/MM/yyyy hh:mm:ss");
+
+        QString formatted_slut; //tjekker om den er tom, tilføjer mellemrum
+        if (tid_slut.isEmpty()){
+                formatted_slut = "                   "; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
+        } else {
+                QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
+                formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
+        }
+
             // Formatterer dataene til en streng
-            QString gripData = QString("NR: %1, Tid_start: %2, Tid_slut: %3, Size: %4, Sess_id: %5")
+            QString gripData = QString("|NR: %1|  |Tid_start: %2|  |Tid_slut: %3|  |Size: %4|  |Sess_id: %5|)
                                 .arg(nr)
-                                .arg(tid_start)
-                                .arg(tid_slut)
+                                .arg(formatted_start)
+                                .arg(formatted_slut)
                                 .arg(size)
                                 .arg(sess_id);
 
@@ -202,13 +214,18 @@ std::vector<std::string> DB::getLast10SessionData() {
 
         // Formatterer dataene
         QDateTime time_start = QDateTime::fromString(tid_start, "yyyy-MM-ddTHH:mm:ss.zzz");
-        QString formattedTime_start = time_start.toString("dd/MM/yyyy hh:mm:ss");
+        QString formatted_start = time_start.toString("dd/MM/yyyy hh:mm:ss");
 
-        QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
-        QString formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss");
+        QString formatted_slut; //tjekker om den er tom, tilføjer mellemrum
+        if (tid_slut.isEmpty()){
+                formatted_slut = "                   "; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
+        } else {
+                QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
+                formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
+        }
 
         // Samler dataene i en streng og tilføjer den til vektoren
-        std::string sessionData = "|Sess id: " + std::to_string(sess_id) + "|  |Tid_start: " + formattedTime_start.toStdString() + "|  |tid_slut: " + formattedTime_slut.toStdString() + "|  |Name: " + name.toStdString() + "|";
+        std::string sessionData = "|Sess id: " + std::to_string(sess_id) + "|  |Tid_start: " + formatted_start.toStdString() + "|  |tid_slut: " + formatted_slut.toStdString() + "|  |Name: " + name.toStdString() + "|";
         data.push_back(sessionData);
     }
 
