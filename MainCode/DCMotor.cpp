@@ -114,7 +114,7 @@ void DCMotor::stop()
 
     //Break
     changeDir();
-    usleep(10000); //Break for 5ms
+    usleep(10000); //Break for 10ms
 
     //Stop
     gpioPWM(mGpioPinEna, 0); //Resets PWM if enabled
