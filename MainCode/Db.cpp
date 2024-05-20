@@ -168,14 +168,14 @@ std::vector<std::string> DB::getLast10GripData() {
 
          //formatere tiden (start) fra (yyy-MM-ddTHH:mm:ss.zzz) to (dd/mm/yyyy hh:mm:ss AP)
         QDateTime time_start = QDateTime::fromString(tid_start, "yyyy-MM-ddTHH:mm:ss.zzz");
-        QString formattedTime_start = time_start.toString("dd/MM/yyyy hh:mm:ss");
+        QString formatted_start = time_start.toString("dd/MM/yyyy hh:mm:ss");
 
         QString formatted_slut; //tjekker om den er tom, tilføjer mellemrum
         if (tid_slut.isEmpty()){
                 formatted_slut = "-------------------"; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
         } else {
                 QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
-                formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
+                formatted_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
         }
 
             // Formatterer dataene til en streng
@@ -221,7 +221,7 @@ std::vector<std::string> DB::getLast10SessionData() {
                 formatted_slut = "-------------------"; // 19 spaces to match "dd/MM/yyyy hh:mm:ss"
         } else {
                 QDateTime time_slut = QDateTime::fromString(tid_slut, "yyyy-MM-ddTHH:mm:ss.zzz");
-                formattedTime_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
+                formatted_slut = time_slut.toString("dd/MM/yyyy hh:mm:ss"); 
         }
 
         // Samler dataene i en streng og tilføjer den til vektoren
