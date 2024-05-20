@@ -179,7 +179,7 @@ std::vector<std::string> DB::getLast10GripData() {
         }
 
             // Formatterer dataene til en streng
-            QString gripData = QString("|NR: %1|  |Tid_start: %2|  |Tid_slut: %3|  |Size: %4|  |Sess_id: %5|)
+            QString gripData = QString("|NR: %1|  |Tid_start: %2|  |Tid_slut: %3|  |Size: %4|  |Sess_id: %5|")
                                 .arg(nr)
                                 .arg(formatted_start)
                                 .arg(formatted_slut)
